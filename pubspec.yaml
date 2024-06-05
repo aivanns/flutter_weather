@@ -1,0 +1,29 @@
+name: flutter_application_3
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.5.0-177.0.dev <4.0.0'
+
+dependencies:
+  bloc: ^8.1.4
+  dio: ^5.4.3+1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.5
+  flutter_svg: ^2.0.10+1
+  freezed: ^2.5.3
+  get_it: ^7.7.0
+  json_annotation:  ^4.9.0
+  sizer: ^2.0.15
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.10
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
