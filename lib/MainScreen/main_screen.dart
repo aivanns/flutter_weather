@@ -44,15 +44,15 @@ class _MainScreenState extends State<MainScreen> {
                             Text(wData['city_name'], style: TextStyle(fontSize: 27, fontWeight: FontWeight.w400,))
                           ],
                         ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                
-                              ],
-                            )
-                          ],
-                        )
+                        // Column(
+                        //   children: [
+                        //     Row(
+                        //       children: [
+
+                        //       ],
+                        //     )
+                        //   ],
+                        // )
                       // Center(child: Text('${wData['country_name'].toString()}, ${wData['city_name'].toString()}, ${wData['temp']}°C')),
                       // SvgPicture.network('https://yastatic.net/weather/i/icons/funky/dark/${wData['icon'].toString().substring(5).toLowerCase()}.svg')
                     ],
