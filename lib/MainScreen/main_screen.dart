@@ -17,6 +17,8 @@ class _MainScreenState extends State<MainScreen> {
 
   final _weatherBloc = WeatherBloc();
 
+  final textController = TextEditingController();
+
   @override
   void initState() {
     _weatherBloc.add(LoadWeather());
@@ -41,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('${wData['country_name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w500),),
-                            Text(wData['city_name'], style: const TextStyle(fontSize: 27, fontWeight: FontWeight.w400,))
+                            Text(wData['city_name'], style: const TextStyle(fontSize: 27, fontWeight: FontWeight.w400,)),
 
                           ],
                         ),
@@ -52,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
 
                         //       ],
                         //     )
-                        //   ],
+                        //   ],x
                         // )
                       // Center(child: Text('${wData['country_name'].toString()}, ${wData['city_name'].toString()}, ${wData['temp']}°C')),
                       // SvgPicture.network('https://yastatic.net/weather/i/icons/funky/dark/${wData['icon'].toString().substring(5).toLowerCase()}.svg')
@@ -61,7 +63,7 @@ class _MainScreenState extends State<MainScreen> {
                   //return Text(state.weatherData.toString());
                 }
                 else {
-                  return const Center(child: CircularProgressIndicator());
+                  return Center(child: ElevatedButton(onPressed: () => WeatherRepository().getGeo('сергиев посад'), child: const Text('reload')));
                 }
               },
             ),

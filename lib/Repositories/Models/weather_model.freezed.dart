@@ -23,7 +23,7 @@ mixin _$WeatherModel {
   @JsonKey(name: "now")
   int get now => throw _privateConstructorUsedError;
   @JsonKey(name: "now_dt")
-  DateTime get nowDt => throw _privateConstructorUsedError;
+  String get nowDt => throw _privateConstructorUsedError;
   @JsonKey(name: "info")
   Info get info => throw _privateConstructorUsedError;
   @JsonKey(name: "geo_object")
@@ -49,7 +49,7 @@ abstract class $WeatherModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "now") int now,
-      @JsonKey(name: "now_dt") DateTime nowDt,
+      @JsonKey(name: "now_dt") String nowDt,
       @JsonKey(name: "info") Info info,
       @JsonKey(name: "geo_object") GeoObject geoObject,
       @JsonKey(name: "yesterday") Yesterday yesterday,
@@ -91,7 +91,7 @@ class _$WeatherModelCopyWithImpl<$Res, $Val extends WeatherModel>
       nowDt: null == nowDt
           ? _value.nowDt
           : nowDt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ abstract class _$$WeatherModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "now") int now,
-      @JsonKey(name: "now_dt") DateTime nowDt,
+      @JsonKey(name: "now_dt") String nowDt,
       @JsonKey(name: "info") Info info,
       @JsonKey(name: "geo_object") GeoObject geoObject,
       @JsonKey(name: "yesterday") Yesterday yesterday,
@@ -202,7 +202,7 @@ class __$$WeatherModelImplCopyWithImpl<$Res>
       nowDt: null == nowDt
           ? _value.nowDt
           : nowDt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       info: null == info
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
@@ -248,7 +248,7 @@ class _$WeatherModelImpl implements _WeatherModel {
   final int now;
   @override
   @JsonKey(name: "now_dt")
-  final DateTime nowDt;
+  final String nowDt;
   @override
   @JsonKey(name: "info")
   final Info info;
@@ -314,7 +314,7 @@ class _$WeatherModelImpl implements _WeatherModel {
 abstract class _WeatherModel implements WeatherModel {
   const factory _WeatherModel(
       {@JsonKey(name: "now") required final int now,
-      @JsonKey(name: "now_dt") required final DateTime nowDt,
+      @JsonKey(name: "now_dt") required final String nowDt,
       @JsonKey(name: "info") required final Info info,
       @JsonKey(name: "geo_object") required final GeoObject geoObject,
       @JsonKey(name: "yesterday") required final Yesterday yesterday,
@@ -330,7 +330,7 @@ abstract class _WeatherModel implements WeatherModel {
   int get now;
   @override
   @JsonKey(name: "now_dt")
-  DateTime get nowDt;
+  String get nowDt;
   @override
   @JsonKey(name: "info")
   Info get info;
@@ -359,17 +359,17 @@ Fact _$FactFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Fact {
   @JsonKey(name: "obs_time")
-  int? get obsTime => throw _privateConstructorUsedError;
+  int get obsTime => throw _privateConstructorUsedError;
   @JsonKey(name: "uptime")
-  int? get uptime => throw _privateConstructorUsedError;
+  int get uptime => throw _privateConstructorUsedError;
   @JsonKey(name: "temp")
   int get temp => throw _privateConstructorUsedError;
   @JsonKey(name: "feels_like")
   int get feelsLike => throw _privateConstructorUsedError;
   @JsonKey(name: "icon")
-  Icon get icon => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
   @JsonKey(name: "condition")
-  FactCondition get condition => throw _privateConstructorUsedError;
+  String get condition => throw _privateConstructorUsedError;
   @JsonKey(name: "cloudness")
   double get cloudness => throw _privateConstructorUsedError;
   @JsonKey(name: "prec_type")
@@ -377,13 +377,13 @@ mixin _$Fact {
   @JsonKey(name: "prec_prob")
   int get precProb => throw _privateConstructorUsedError;
   @JsonKey(name: "prec_strength")
-  double get precStrength => throw _privateConstructorUsedError;
+  int get precStrength => throw _privateConstructorUsedError;
   @JsonKey(name: "is_thunder")
   bool get isThunder => throw _privateConstructorUsedError;
   @JsonKey(name: "wind_speed")
   double get windSpeed => throw _privateConstructorUsedError;
   @JsonKey(name: "wind_dir")
-  WindDir get windDir => throw _privateConstructorUsedError;
+  String get windDir => throw _privateConstructorUsedError;
   @JsonKey(name: "pressure_mm")
   int get pressureMm => throw _privateConstructorUsedError;
   @JsonKey(name: "pressure_pa")
@@ -391,29 +391,23 @@ mixin _$Fact {
   @JsonKey(name: "humidity")
   int get humidity => throw _privateConstructorUsedError;
   @JsonKey(name: "daytime")
-  Daytime? get daytime => throw _privateConstructorUsedError;
+  String get daytime => throw _privateConstructorUsedError;
   @JsonKey(name: "polar")
-  bool? get polar => throw _privateConstructorUsedError;
+  bool get polar => throw _privateConstructorUsedError;
   @JsonKey(name: "season")
-  String? get season => throw _privateConstructorUsedError;
+  String get season => throw _privateConstructorUsedError;
   @JsonKey(name: "source")
-  String? get source => throw _privateConstructorUsedError;
+  String get source => throw _privateConstructorUsedError;
+  @JsonKey(name: "accum_prec")
+  AccumPrec get accumPrec => throw _privateConstructorUsedError;
   @JsonKey(name: "soil_moisture")
-  int get soilMoisture => throw _privateConstructorUsedError;
+  double get soilMoisture => throw _privateConstructorUsedError;
   @JsonKey(name: "soil_temp")
   int get soilTemp => throw _privateConstructorUsedError;
   @JsonKey(name: "uv_index")
   int get uvIndex => throw _privateConstructorUsedError;
   @JsonKey(name: "wind_gust")
   double get windGust => throw _privateConstructorUsedError;
-  @JsonKey(name: "hour")
-  String? get hour => throw _privateConstructorUsedError;
-  @JsonKey(name: "hour_ts")
-  int? get hourTs => throw _privateConstructorUsedError;
-  @JsonKey(name: "prec_mm")
-  double? get precMm => throw _privateConstructorUsedError;
-  @JsonKey(name: "prec_period")
-  int? get precPeriod => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -426,34 +420,33 @@ abstract class $FactCopyWith<$Res> {
       _$FactCopyWithImpl<$Res, Fact>;
   @useResult
   $Res call(
-      {@JsonKey(name: "obs_time") int? obsTime,
-      @JsonKey(name: "uptime") int? uptime,
+      {@JsonKey(name: "obs_time") int obsTime,
+      @JsonKey(name: "uptime") int uptime,
       @JsonKey(name: "temp") int temp,
       @JsonKey(name: "feels_like") int feelsLike,
-      @JsonKey(name: "icon") Icon icon,
-      @JsonKey(name: "condition") FactCondition condition,
+      @JsonKey(name: "icon") String icon,
+      @JsonKey(name: "condition") String condition,
       @JsonKey(name: "cloudness") double cloudness,
       @JsonKey(name: "prec_type") int precType,
       @JsonKey(name: "prec_prob") int precProb,
-      @JsonKey(name: "prec_strength") double precStrength,
+      @JsonKey(name: "prec_strength") int precStrength,
       @JsonKey(name: "is_thunder") bool isThunder,
       @JsonKey(name: "wind_speed") double windSpeed,
-      @JsonKey(name: "wind_dir") WindDir windDir,
+      @JsonKey(name: "wind_dir") String windDir,
       @JsonKey(name: "pressure_mm") int pressureMm,
       @JsonKey(name: "pressure_pa") int pressurePa,
       @JsonKey(name: "humidity") int humidity,
-      @JsonKey(name: "daytime") Daytime? daytime,
-      @JsonKey(name: "polar") bool? polar,
-      @JsonKey(name: "season") String? season,
-      @JsonKey(name: "source") String? source,
-      @JsonKey(name: "soil_moisture") int soilMoisture,
+      @JsonKey(name: "daytime") String daytime,
+      @JsonKey(name: "polar") bool polar,
+      @JsonKey(name: "season") String season,
+      @JsonKey(name: "source") String source,
+      @JsonKey(name: "accum_prec") AccumPrec accumPrec,
+      @JsonKey(name: "soil_moisture") double soilMoisture,
       @JsonKey(name: "soil_temp") int soilTemp,
       @JsonKey(name: "uv_index") int uvIndex,
-      @JsonKey(name: "wind_gust") double windGust,
-      @JsonKey(name: "hour") String? hour,
-      @JsonKey(name: "hour_ts") int? hourTs,
-      @JsonKey(name: "prec_mm") double? precMm,
-      @JsonKey(name: "prec_period") int? precPeriod});
+      @JsonKey(name: "wind_gust") double windGust});
+
+  $AccumPrecCopyWith<$Res> get accumPrec;
 }
 
 /// @nodoc
@@ -469,8 +462,8 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? obsTime = freezed,
-    Object? uptime = freezed,
+    Object? obsTime = null,
+    Object? uptime = null,
     Object? temp = null,
     Object? feelsLike = null,
     Object? icon = null,
@@ -485,28 +478,25 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
     Object? pressureMm = null,
     Object? pressurePa = null,
     Object? humidity = null,
-    Object? daytime = freezed,
-    Object? polar = freezed,
-    Object? season = freezed,
-    Object? source = freezed,
+    Object? daytime = null,
+    Object? polar = null,
+    Object? season = null,
+    Object? source = null,
+    Object? accumPrec = null,
     Object? soilMoisture = null,
     Object? soilTemp = null,
     Object? uvIndex = null,
     Object? windGust = null,
-    Object? hour = freezed,
-    Object? hourTs = freezed,
-    Object? precMm = freezed,
-    Object? precPeriod = freezed,
   }) {
     return _then(_value.copyWith(
-      obsTime: freezed == obsTime
+      obsTime: null == obsTime
           ? _value.obsTime
           : obsTime // ignore: cast_nullable_to_non_nullable
-              as int?,
-      uptime: freezed == uptime
+              as int,
+      uptime: null == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       temp: null == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
@@ -518,11 +508,11 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as Icon,
+              as String,
       condition: null == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
-              as FactCondition,
+              as String,
       cloudness: null == cloudness
           ? _value.cloudness
           : cloudness // ignore: cast_nullable_to_non_nullable
@@ -538,7 +528,7 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
       precStrength: null == precStrength
           ? _value.precStrength
           : precStrength // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       isThunder: null == isThunder
           ? _value.isThunder
           : isThunder // ignore: cast_nullable_to_non_nullable
@@ -550,7 +540,7 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
       windDir: null == windDir
           ? _value.windDir
           : windDir // ignore: cast_nullable_to_non_nullable
-              as WindDir,
+              as String,
       pressureMm: null == pressureMm
           ? _value.pressureMm
           : pressureMm // ignore: cast_nullable_to_non_nullable
@@ -563,26 +553,30 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
               as int,
-      daytime: freezed == daytime
+      daytime: null == daytime
           ? _value.daytime
           : daytime // ignore: cast_nullable_to_non_nullable
-              as Daytime?,
-      polar: freezed == polar
+              as String,
+      polar: null == polar
           ? _value.polar
           : polar // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      season: freezed == season
+              as bool,
+      season: null == season
           ? _value.season
           : season // ignore: cast_nullable_to_non_nullable
-              as String?,
-      source: freezed == source
+              as String,
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      accumPrec: null == accumPrec
+          ? _value.accumPrec
+          : accumPrec // ignore: cast_nullable_to_non_nullable
+              as AccumPrec,
       soilMoisture: null == soilMoisture
           ? _value.soilMoisture
           : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       soilTemp: null == soilTemp
           ? _value.soilTemp
           : soilTemp // ignore: cast_nullable_to_non_nullable
@@ -595,23 +589,15 @@ class _$FactCopyWithImpl<$Res, $Val extends Fact>
           ? _value.windGust
           : windGust // ignore: cast_nullable_to_non_nullable
               as double,
-      hour: freezed == hour
-          ? _value.hour
-          : hour // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hourTs: freezed == hourTs
-          ? _value.hourTs
-          : hourTs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      precMm: freezed == precMm
-          ? _value.precMm
-          : precMm // ignore: cast_nullable_to_non_nullable
-              as double?,
-      precPeriod: freezed == precPeriod
-          ? _value.precPeriod
-          : precPeriod // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccumPrecCopyWith<$Res> get accumPrec {
+    return $AccumPrecCopyWith<$Res>(_value.accumPrec, (value) {
+      return _then(_value.copyWith(accumPrec: value) as $Val);
+    });
   }
 }
 
@@ -623,34 +609,34 @@ abstract class _$$FactImplCopyWith<$Res> implements $FactCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "obs_time") int? obsTime,
-      @JsonKey(name: "uptime") int? uptime,
+      {@JsonKey(name: "obs_time") int obsTime,
+      @JsonKey(name: "uptime") int uptime,
       @JsonKey(name: "temp") int temp,
       @JsonKey(name: "feels_like") int feelsLike,
-      @JsonKey(name: "icon") Icon icon,
-      @JsonKey(name: "condition") FactCondition condition,
+      @JsonKey(name: "icon") String icon,
+      @JsonKey(name: "condition") String condition,
       @JsonKey(name: "cloudness") double cloudness,
       @JsonKey(name: "prec_type") int precType,
       @JsonKey(name: "prec_prob") int precProb,
-      @JsonKey(name: "prec_strength") double precStrength,
+      @JsonKey(name: "prec_strength") int precStrength,
       @JsonKey(name: "is_thunder") bool isThunder,
       @JsonKey(name: "wind_speed") double windSpeed,
-      @JsonKey(name: "wind_dir") WindDir windDir,
+      @JsonKey(name: "wind_dir") String windDir,
       @JsonKey(name: "pressure_mm") int pressureMm,
       @JsonKey(name: "pressure_pa") int pressurePa,
       @JsonKey(name: "humidity") int humidity,
-      @JsonKey(name: "daytime") Daytime? daytime,
-      @JsonKey(name: "polar") bool? polar,
-      @JsonKey(name: "season") String? season,
-      @JsonKey(name: "source") String? source,
-      @JsonKey(name: "soil_moisture") int soilMoisture,
+      @JsonKey(name: "daytime") String daytime,
+      @JsonKey(name: "polar") bool polar,
+      @JsonKey(name: "season") String season,
+      @JsonKey(name: "source") String source,
+      @JsonKey(name: "accum_prec") AccumPrec accumPrec,
+      @JsonKey(name: "soil_moisture") double soilMoisture,
       @JsonKey(name: "soil_temp") int soilTemp,
       @JsonKey(name: "uv_index") int uvIndex,
-      @JsonKey(name: "wind_gust") double windGust,
-      @JsonKey(name: "hour") String? hour,
-      @JsonKey(name: "hour_ts") int? hourTs,
-      @JsonKey(name: "prec_mm") double? precMm,
-      @JsonKey(name: "prec_period") int? precPeriod});
+      @JsonKey(name: "wind_gust") double windGust});
+
+  @override
+  $AccumPrecCopyWith<$Res> get accumPrec;
 }
 
 /// @nodoc
@@ -663,8 +649,8 @@ class __$$FactImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? obsTime = freezed,
-    Object? uptime = freezed,
+    Object? obsTime = null,
+    Object? uptime = null,
     Object? temp = null,
     Object? feelsLike = null,
     Object? icon = null,
@@ -679,28 +665,25 @@ class __$$FactImplCopyWithImpl<$Res>
     Object? pressureMm = null,
     Object? pressurePa = null,
     Object? humidity = null,
-    Object? daytime = freezed,
-    Object? polar = freezed,
-    Object? season = freezed,
-    Object? source = freezed,
+    Object? daytime = null,
+    Object? polar = null,
+    Object? season = null,
+    Object? source = null,
+    Object? accumPrec = null,
     Object? soilMoisture = null,
     Object? soilTemp = null,
     Object? uvIndex = null,
     Object? windGust = null,
-    Object? hour = freezed,
-    Object? hourTs = freezed,
-    Object? precMm = freezed,
-    Object? precPeriod = freezed,
   }) {
     return _then(_$FactImpl(
-      obsTime: freezed == obsTime
+      obsTime: null == obsTime
           ? _value.obsTime
           : obsTime // ignore: cast_nullable_to_non_nullable
-              as int?,
-      uptime: freezed == uptime
+              as int,
+      uptime: null == uptime
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       temp: null == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
@@ -712,11 +695,11 @@ class __$$FactImplCopyWithImpl<$Res>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as Icon,
+              as String,
       condition: null == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
-              as FactCondition,
+              as String,
       cloudness: null == cloudness
           ? _value.cloudness
           : cloudness // ignore: cast_nullable_to_non_nullable
@@ -732,7 +715,7 @@ class __$$FactImplCopyWithImpl<$Res>
       precStrength: null == precStrength
           ? _value.precStrength
           : precStrength // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       isThunder: null == isThunder
           ? _value.isThunder
           : isThunder // ignore: cast_nullable_to_non_nullable
@@ -744,7 +727,7 @@ class __$$FactImplCopyWithImpl<$Res>
       windDir: null == windDir
           ? _value.windDir
           : windDir // ignore: cast_nullable_to_non_nullable
-              as WindDir,
+              as String,
       pressureMm: null == pressureMm
           ? _value.pressureMm
           : pressureMm // ignore: cast_nullable_to_non_nullable
@@ -757,26 +740,30 @@ class __$$FactImplCopyWithImpl<$Res>
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
               as int,
-      daytime: freezed == daytime
+      daytime: null == daytime
           ? _value.daytime
           : daytime // ignore: cast_nullable_to_non_nullable
-              as Daytime?,
-      polar: freezed == polar
+              as String,
+      polar: null == polar
           ? _value.polar
           : polar // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      season: freezed == season
+              as bool,
+      season: null == season
           ? _value.season
           : season // ignore: cast_nullable_to_non_nullable
-              as String?,
-      source: freezed == source
+              as String,
+      source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      accumPrec: null == accumPrec
+          ? _value.accumPrec
+          : accumPrec // ignore: cast_nullable_to_non_nullable
+              as AccumPrec,
       soilMoisture: null == soilMoisture
           ? _value.soilMoisture
           : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       soilTemp: null == soilTemp
           ? _value.soilTemp
           : soilTemp // ignore: cast_nullable_to_non_nullable
@@ -789,22 +776,6 @@ class __$$FactImplCopyWithImpl<$Res>
           ? _value.windGust
           : windGust // ignore: cast_nullable_to_non_nullable
               as double,
-      hour: freezed == hour
-          ? _value.hour
-          : hour // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hourTs: freezed == hourTs
-          ? _value.hourTs
-          : hourTs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      precMm: freezed == precMm
-          ? _value.precMm
-          : precMm // ignore: cast_nullable_to_non_nullable
-              as double?,
-      precPeriod: freezed == precPeriod
-          ? _value.precPeriod
-          : precPeriod // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -813,8 +784,8 @@ class __$$FactImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FactImpl implements _Fact {
   const _$FactImpl(
-      {@JsonKey(name: "obs_time") this.obsTime,
-      @JsonKey(name: "uptime") this.uptime,
+      {@JsonKey(name: "obs_time") required this.obsTime,
+      @JsonKey(name: "uptime") required this.uptime,
       @JsonKey(name: "temp") required this.temp,
       @JsonKey(name: "feels_like") required this.feelsLike,
       @JsonKey(name: "icon") required this.icon,
@@ -829,28 +800,25 @@ class _$FactImpl implements _Fact {
       @JsonKey(name: "pressure_mm") required this.pressureMm,
       @JsonKey(name: "pressure_pa") required this.pressurePa,
       @JsonKey(name: "humidity") required this.humidity,
-      @JsonKey(name: "daytime") this.daytime,
-      @JsonKey(name: "polar") this.polar,
-      @JsonKey(name: "season") this.season,
-      @JsonKey(name: "source") this.source,
+      @JsonKey(name: "daytime") required this.daytime,
+      @JsonKey(name: "polar") required this.polar,
+      @JsonKey(name: "season") required this.season,
+      @JsonKey(name: "source") required this.source,
+      @JsonKey(name: "accum_prec") required this.accumPrec,
       @JsonKey(name: "soil_moisture") required this.soilMoisture,
       @JsonKey(name: "soil_temp") required this.soilTemp,
       @JsonKey(name: "uv_index") required this.uvIndex,
-      @JsonKey(name: "wind_gust") required this.windGust,
-      @JsonKey(name: "hour") this.hour,
-      @JsonKey(name: "hour_ts") this.hourTs,
-      @JsonKey(name: "prec_mm") this.precMm,
-      @JsonKey(name: "prec_period") this.precPeriod});
+      @JsonKey(name: "wind_gust") required this.windGust});
 
   factory _$FactImpl.fromJson(Map<String, dynamic> json) =>
       _$$FactImplFromJson(json);
 
   @override
   @JsonKey(name: "obs_time")
-  final int? obsTime;
+  final int obsTime;
   @override
   @JsonKey(name: "uptime")
-  final int? uptime;
+  final int uptime;
   @override
   @JsonKey(name: "temp")
   final int temp;
@@ -859,10 +827,10 @@ class _$FactImpl implements _Fact {
   final int feelsLike;
   @override
   @JsonKey(name: "icon")
-  final Icon icon;
+  final String icon;
   @override
   @JsonKey(name: "condition")
-  final FactCondition condition;
+  final String condition;
   @override
   @JsonKey(name: "cloudness")
   final double cloudness;
@@ -874,7 +842,7 @@ class _$FactImpl implements _Fact {
   final int precProb;
   @override
   @JsonKey(name: "prec_strength")
-  final double precStrength;
+  final int precStrength;
   @override
   @JsonKey(name: "is_thunder")
   final bool isThunder;
@@ -883,7 +851,7 @@ class _$FactImpl implements _Fact {
   final double windSpeed;
   @override
   @JsonKey(name: "wind_dir")
-  final WindDir windDir;
+  final String windDir;
   @override
   @JsonKey(name: "pressure_mm")
   final int pressureMm;
@@ -895,19 +863,22 @@ class _$FactImpl implements _Fact {
   final int humidity;
   @override
   @JsonKey(name: "daytime")
-  final Daytime? daytime;
+  final String daytime;
   @override
   @JsonKey(name: "polar")
-  final bool? polar;
+  final bool polar;
   @override
   @JsonKey(name: "season")
-  final String? season;
+  final String season;
   @override
   @JsonKey(name: "source")
-  final String? source;
+  final String source;
+  @override
+  @JsonKey(name: "accum_prec")
+  final AccumPrec accumPrec;
   @override
   @JsonKey(name: "soil_moisture")
-  final int soilMoisture;
+  final double soilMoisture;
   @override
   @JsonKey(name: "soil_temp")
   final int soilTemp;
@@ -917,22 +888,10 @@ class _$FactImpl implements _Fact {
   @override
   @JsonKey(name: "wind_gust")
   final double windGust;
-  @override
-  @JsonKey(name: "hour")
-  final String? hour;
-  @override
-  @JsonKey(name: "hour_ts")
-  final int? hourTs;
-  @override
-  @JsonKey(name: "prec_mm")
-  final double? precMm;
-  @override
-  @JsonKey(name: "prec_period")
-  final int? precPeriod;
 
   @override
   String toString() {
-    return 'Fact(obsTime: $obsTime, uptime: $uptime, temp: $temp, feelsLike: $feelsLike, icon: $icon, condition: $condition, cloudness: $cloudness, precType: $precType, precProb: $precProb, precStrength: $precStrength, isThunder: $isThunder, windSpeed: $windSpeed, windDir: $windDir, pressureMm: $pressureMm, pressurePa: $pressurePa, humidity: $humidity, daytime: $daytime, polar: $polar, season: $season, source: $source, soilMoisture: $soilMoisture, soilTemp: $soilTemp, uvIndex: $uvIndex, windGust: $windGust, hour: $hour, hourTs: $hourTs, precMm: $precMm, precPeriod: $precPeriod)';
+    return 'Fact(obsTime: $obsTime, uptime: $uptime, temp: $temp, feelsLike: $feelsLike, icon: $icon, condition: $condition, cloudness: $cloudness, precType: $precType, precProb: $precProb, precStrength: $precStrength, isThunder: $isThunder, windSpeed: $windSpeed, windDir: $windDir, pressureMm: $pressureMm, pressurePa: $pressurePa, humidity: $humidity, daytime: $daytime, polar: $polar, season: $season, source: $source, accumPrec: $accumPrec, soilMoisture: $soilMoisture, soilTemp: $soilTemp, uvIndex: $uvIndex, windGust: $windGust)';
   }
 
   @override
@@ -971,18 +930,15 @@ class _$FactImpl implements _Fact {
             (identical(other.polar, polar) || other.polar == polar) &&
             (identical(other.season, season) || other.season == season) &&
             (identical(other.source, source) || other.source == source) &&
+            (identical(other.accumPrec, accumPrec) ||
+                other.accumPrec == accumPrec) &&
             (identical(other.soilMoisture, soilMoisture) ||
                 other.soilMoisture == soilMoisture) &&
             (identical(other.soilTemp, soilTemp) ||
                 other.soilTemp == soilTemp) &&
             (identical(other.uvIndex, uvIndex) || other.uvIndex == uvIndex) &&
             (identical(other.windGust, windGust) ||
-                other.windGust == windGust) &&
-            (identical(other.hour, hour) || other.hour == hour) &&
-            (identical(other.hourTs, hourTs) || other.hourTs == hourTs) &&
-            (identical(other.precMm, precMm) || other.precMm == precMm) &&
-            (identical(other.precPeriod, precPeriod) ||
-                other.precPeriod == precPeriod));
+                other.windGust == windGust));
   }
 
   @JsonKey(ignore: true)
@@ -1009,14 +965,11 @@ class _$FactImpl implements _Fact {
         polar,
         season,
         source,
+        accumPrec,
         soilMoisture,
         soilTemp,
         uvIndex,
-        windGust,
-        hour,
-        hourTs,
-        precMm,
-        precPeriod
+        windGust
       ]);
 
   @JsonKey(ignore: true)
@@ -1035,43 +988,40 @@ class _$FactImpl implements _Fact {
 
 abstract class _Fact implements Fact {
   const factory _Fact(
-      {@JsonKey(name: "obs_time") final int? obsTime,
-      @JsonKey(name: "uptime") final int? uptime,
+      {@JsonKey(name: "obs_time") required final int obsTime,
+      @JsonKey(name: "uptime") required final int uptime,
       @JsonKey(name: "temp") required final int temp,
       @JsonKey(name: "feels_like") required final int feelsLike,
-      @JsonKey(name: "icon") required final Icon icon,
-      @JsonKey(name: "condition") required final FactCondition condition,
+      @JsonKey(name: "icon") required final String icon,
+      @JsonKey(name: "condition") required final String condition,
       @JsonKey(name: "cloudness") required final double cloudness,
       @JsonKey(name: "prec_type") required final int precType,
       @JsonKey(name: "prec_prob") required final int precProb,
-      @JsonKey(name: "prec_strength") required final double precStrength,
+      @JsonKey(name: "prec_strength") required final int precStrength,
       @JsonKey(name: "is_thunder") required final bool isThunder,
       @JsonKey(name: "wind_speed") required final double windSpeed,
-      @JsonKey(name: "wind_dir") required final WindDir windDir,
+      @JsonKey(name: "wind_dir") required final String windDir,
       @JsonKey(name: "pressure_mm") required final int pressureMm,
       @JsonKey(name: "pressure_pa") required final int pressurePa,
       @JsonKey(name: "humidity") required final int humidity,
-      @JsonKey(name: "daytime") final Daytime? daytime,
-      @JsonKey(name: "polar") final bool? polar,
-      @JsonKey(name: "season") final String? season,
-      @JsonKey(name: "source") final String? source,
-      @JsonKey(name: "soil_moisture") required final int soilMoisture,
+      @JsonKey(name: "daytime") required final String daytime,
+      @JsonKey(name: "polar") required final bool polar,
+      @JsonKey(name: "season") required final String season,
+      @JsonKey(name: "source") required final String source,
+      @JsonKey(name: "accum_prec") required final AccumPrec accumPrec,
+      @JsonKey(name: "soil_moisture") required final double soilMoisture,
       @JsonKey(name: "soil_temp") required final int soilTemp,
       @JsonKey(name: "uv_index") required final int uvIndex,
-      @JsonKey(name: "wind_gust") required final double windGust,
-      @JsonKey(name: "hour") final String? hour,
-      @JsonKey(name: "hour_ts") final int? hourTs,
-      @JsonKey(name: "prec_mm") final double? precMm,
-      @JsonKey(name: "prec_period") final int? precPeriod}) = _$FactImpl;
+      @JsonKey(name: "wind_gust") required final double windGust}) = _$FactImpl;
 
   factory _Fact.fromJson(Map<String, dynamic> json) = _$FactImpl.fromJson;
 
   @override
   @JsonKey(name: "obs_time")
-  int? get obsTime;
+  int get obsTime;
   @override
   @JsonKey(name: "uptime")
-  int? get uptime;
+  int get uptime;
   @override
   @JsonKey(name: "temp")
   int get temp;
@@ -1080,10 +1030,10 @@ abstract class _Fact implements Fact {
   int get feelsLike;
   @override
   @JsonKey(name: "icon")
-  Icon get icon;
+  String get icon;
   @override
   @JsonKey(name: "condition")
-  FactCondition get condition;
+  String get condition;
   @override
   @JsonKey(name: "cloudness")
   double get cloudness;
@@ -1095,7 +1045,7 @@ abstract class _Fact implements Fact {
   int get precProb;
   @override
   @JsonKey(name: "prec_strength")
-  double get precStrength;
+  int get precStrength;
   @override
   @JsonKey(name: "is_thunder")
   bool get isThunder;
@@ -1104,7 +1054,7 @@ abstract class _Fact implements Fact {
   double get windSpeed;
   @override
   @JsonKey(name: "wind_dir")
-  WindDir get windDir;
+  String get windDir;
   @override
   @JsonKey(name: "pressure_mm")
   int get pressureMm;
@@ -1116,19 +1066,22 @@ abstract class _Fact implements Fact {
   int get humidity;
   @override
   @JsonKey(name: "daytime")
-  Daytime? get daytime;
+  String get daytime;
   @override
   @JsonKey(name: "polar")
-  bool? get polar;
+  bool get polar;
   @override
   @JsonKey(name: "season")
-  String? get season;
+  String get season;
   @override
   @JsonKey(name: "source")
-  String? get source;
+  String get source;
+  @override
+  @JsonKey(name: "accum_prec")
+  AccumPrec get accumPrec;
   @override
   @JsonKey(name: "soil_moisture")
-  int get soilMoisture;
+  double get soilMoisture;
   @override
   @JsonKey(name: "soil_temp")
   int get soilTemp;
@@ -1139,20 +1092,196 @@ abstract class _Fact implements Fact {
   @JsonKey(name: "wind_gust")
   double get windGust;
   @override
-  @JsonKey(name: "hour")
-  String? get hour;
-  @override
-  @JsonKey(name: "hour_ts")
-  int? get hourTs;
-  @override
-  @JsonKey(name: "prec_mm")
-  double? get precMm;
-  @override
-  @JsonKey(name: "prec_period")
-  int? get precPeriod;
-  @override
   @JsonKey(ignore: true)
   _$$FactImplCopyWith<_$FactImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AccumPrec _$AccumPrecFromJson(Map<String, dynamic> json) {
+  return _AccumPrec.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AccumPrec {
+  @JsonKey(name: "1")
+  double get the1 => throw _privateConstructorUsedError;
+  @JsonKey(name: "3")
+  double get the3 => throw _privateConstructorUsedError;
+  @JsonKey(name: "7")
+  double get the7 => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AccumPrecCopyWith<AccumPrec> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AccumPrecCopyWith<$Res> {
+  factory $AccumPrecCopyWith(AccumPrec value, $Res Function(AccumPrec) then) =
+      _$AccumPrecCopyWithImpl<$Res, AccumPrec>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "1") double the1,
+      @JsonKey(name: "3") double the3,
+      @JsonKey(name: "7") double the7});
+}
+
+/// @nodoc
+class _$AccumPrecCopyWithImpl<$Res, $Val extends AccumPrec>
+    implements $AccumPrecCopyWith<$Res> {
+  _$AccumPrecCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? the1 = null,
+    Object? the3 = null,
+    Object? the7 = null,
+  }) {
+    return _then(_value.copyWith(
+      the1: null == the1
+          ? _value.the1
+          : the1 // ignore: cast_nullable_to_non_nullable
+              as double,
+      the3: null == the3
+          ? _value.the3
+          : the3 // ignore: cast_nullable_to_non_nullable
+              as double,
+      the7: null == the7
+          ? _value.the7
+          : the7 // ignore: cast_nullable_to_non_nullable
+              as double,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AccumPrecImplCopyWith<$Res>
+    implements $AccumPrecCopyWith<$Res> {
+  factory _$$AccumPrecImplCopyWith(
+          _$AccumPrecImpl value, $Res Function(_$AccumPrecImpl) then) =
+      __$$AccumPrecImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "1") double the1,
+      @JsonKey(name: "3") double the3,
+      @JsonKey(name: "7") double the7});
+}
+
+/// @nodoc
+class __$$AccumPrecImplCopyWithImpl<$Res>
+    extends _$AccumPrecCopyWithImpl<$Res, _$AccumPrecImpl>
+    implements _$$AccumPrecImplCopyWith<$Res> {
+  __$$AccumPrecImplCopyWithImpl(
+      _$AccumPrecImpl _value, $Res Function(_$AccumPrecImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? the1 = null,
+    Object? the3 = null,
+    Object? the7 = null,
+  }) {
+    return _then(_$AccumPrecImpl(
+      the1: null == the1
+          ? _value.the1
+          : the1 // ignore: cast_nullable_to_non_nullable
+              as double,
+      the3: null == the3
+          ? _value.the3
+          : the3 // ignore: cast_nullable_to_non_nullable
+              as double,
+      the7: null == the7
+          ? _value.the7
+          : the7 // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AccumPrecImpl implements _AccumPrec {
+  const _$AccumPrecImpl(
+      {@JsonKey(name: "1") required this.the1,
+      @JsonKey(name: "3") required this.the3,
+      @JsonKey(name: "7") required this.the7});
+
+  factory _$AccumPrecImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AccumPrecImplFromJson(json);
+
+  @override
+  @JsonKey(name: "1")
+  final double the1;
+  @override
+  @JsonKey(name: "3")
+  final double the3;
+  @override
+  @JsonKey(name: "7")
+  final double the7;
+
+  @override
+  String toString() {
+    return 'AccumPrec(the1: $the1, the3: $the3, the7: $the7)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AccumPrecImpl &&
+            (identical(other.the1, the1) || other.the1 == the1) &&
+            (identical(other.the3, the3) || other.the3 == the3) &&
+            (identical(other.the7, the7) || other.the7 == the7));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, the1, the3, the7);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AccumPrecImplCopyWith<_$AccumPrecImpl> get copyWith =>
+      __$$AccumPrecImplCopyWithImpl<_$AccumPrecImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AccumPrecImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AccumPrec implements AccumPrec {
+  const factory _AccumPrec(
+      {@JsonKey(name: "1") required final double the1,
+      @JsonKey(name: "3") required final double the3,
+      @JsonKey(name: "7") required final double the7}) = _$AccumPrecImpl;
+
+  factory _AccumPrec.fromJson(Map<String, dynamic> json) =
+      _$AccumPrecImpl.fromJson;
+
+  @override
+  @JsonKey(name: "1")
+  double get the1;
+  @override
+  @JsonKey(name: "3")
+  double get the3;
+  @override
+  @JsonKey(name: "7")
+  double get the7;
+  @override
+  @JsonKey(ignore: true)
+  _$$AccumPrecImplCopyWith<_$AccumPrecImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1183,7 +1312,7 @@ mixin _$Forecast {
   @JsonKey(name: "parts")
   Parts get parts => throw _privateConstructorUsedError;
   @JsonKey(name: "hours")
-  List<Fact> get hours => throw _privateConstructorUsedError;
+  List<Hour> get hours => throw _privateConstructorUsedError;
   @JsonKey(name: "biomet")
   Biomet? get biomet => throw _privateConstructorUsedError;
 
@@ -1209,7 +1338,7 @@ abstract class $ForecastCopyWith<$Res> {
       @JsonKey(name: "moon_code") int moonCode,
       @JsonKey(name: "moon_text") String moonText,
       @JsonKey(name: "parts") Parts parts,
-      @JsonKey(name: "hours") List<Fact> hours,
+      @JsonKey(name: "hours") List<Hour> hours,
       @JsonKey(name: "biomet") Biomet? biomet});
 
   $PartsCopyWith<$Res> get parts;
@@ -1286,7 +1415,7 @@ class _$ForecastCopyWithImpl<$Res, $Val extends Forecast>
       hours: null == hours
           ? _value.hours
           : hours // ignore: cast_nullable_to_non_nullable
-              as List<Fact>,
+              as List<Hour>,
       biomet: freezed == biomet
           ? _value.biomet
           : biomet // ignore: cast_nullable_to_non_nullable
@@ -1334,7 +1463,7 @@ abstract class _$$ForecastImplCopyWith<$Res>
       @JsonKey(name: "moon_code") int moonCode,
       @JsonKey(name: "moon_text") String moonText,
       @JsonKey(name: "parts") Parts parts,
-      @JsonKey(name: "hours") List<Fact> hours,
+      @JsonKey(name: "hours") List<Hour> hours,
       @JsonKey(name: "biomet") Biomet? biomet});
 
   @override
@@ -1411,7 +1540,7 @@ class __$$ForecastImplCopyWithImpl<$Res>
       hours: null == hours
           ? _value._hours
           : hours // ignore: cast_nullable_to_non_nullable
-              as List<Fact>,
+              as List<Hour>,
       biomet: freezed == biomet
           ? _value.biomet
           : biomet // ignore: cast_nullable_to_non_nullable
@@ -1434,7 +1563,7 @@ class _$ForecastImpl implements _Forecast {
       @JsonKey(name: "moon_code") required this.moonCode,
       @JsonKey(name: "moon_text") required this.moonText,
       @JsonKey(name: "parts") required this.parts,
-      @JsonKey(name: "hours") required final List<Fact> hours,
+      @JsonKey(name: "hours") required final List<Hour> hours,
       @JsonKey(name: "biomet") this.biomet})
       : _hours = hours;
 
@@ -1471,10 +1600,10 @@ class _$ForecastImpl implements _Forecast {
   @override
   @JsonKey(name: "parts")
   final Parts parts;
-  final List<Fact> _hours;
+  final List<Hour> _hours;
   @override
   @JsonKey(name: "hours")
-  List<Fact> get hours {
+  List<Hour> get hours {
     if (_hours is EqualUnmodifiableListView) return _hours;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hours);
@@ -1554,7 +1683,7 @@ abstract class _Forecast implements Forecast {
       @JsonKey(name: "moon_code") required final int moonCode,
       @JsonKey(name: "moon_text") required final String moonText,
       @JsonKey(name: "parts") required final Parts parts,
-      @JsonKey(name: "hours") required final List<Fact> hours,
+      @JsonKey(name: "hours") required final List<Hour> hours,
       @JsonKey(name: "biomet") final Biomet? biomet}) = _$ForecastImpl;
 
   factory _Forecast.fromJson(Map<String, dynamic> json) =
@@ -1592,7 +1721,7 @@ abstract class _Forecast implements Forecast {
   Parts get parts;
   @override
   @JsonKey(name: "hours")
-  List<Fact> get hours;
+  List<Hour> get hours;
   @override
   @JsonKey(name: "biomet")
   Biomet? get biomet;
@@ -1611,7 +1740,7 @@ mixin _$Biomet {
   @JsonKey(name: "index")
   int get index => throw _privateConstructorUsedError;
   @JsonKey(name: "condition")
-  BiometCondition get condition => throw _privateConstructorUsedError;
+  String get condition => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1625,7 +1754,7 @@ abstract class $BiometCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "index") int index,
-      @JsonKey(name: "condition") BiometCondition condition});
+      @JsonKey(name: "condition") String condition});
 }
 
 /// @nodoc
@@ -1652,7 +1781,7 @@ class _$BiometCopyWithImpl<$Res, $Val extends Biomet>
       condition: null == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
-              as BiometCondition,
+              as String,
     ) as $Val);
   }
 }
@@ -1666,7 +1795,7 @@ abstract class _$$BiometImplCopyWith<$Res> implements $BiometCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "index") int index,
-      @JsonKey(name: "condition") BiometCondition condition});
+      @JsonKey(name: "condition") String condition});
 }
 
 /// @nodoc
@@ -1691,7 +1820,7 @@ class __$$BiometImplCopyWithImpl<$Res>
       condition: null == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
-              as BiometCondition,
+              as String,
     ));
   }
 }
@@ -1711,7 +1840,7 @@ class _$BiometImpl implements _Biomet {
   final int index;
   @override
   @JsonKey(name: "condition")
-  final BiometCondition condition;
+  final String condition;
 
   @override
   String toString() {
@@ -1748,9 +1877,9 @@ class _$BiometImpl implements _Biomet {
 
 abstract class _Biomet implements Biomet {
   const factory _Biomet(
-      {@JsonKey(name: "index") required final int index,
-      @JsonKey(name: "condition")
-      required final BiometCondition condition}) = _$BiometImpl;
+          {@JsonKey(name: "index") required final int index,
+          @JsonKey(name: "condition") required final String condition}) =
+      _$BiometImpl;
 
   factory _Biomet.fromJson(Map<String, dynamic> json) = _$BiometImpl.fromJson;
 
@@ -1759,10 +1888,670 @@ abstract class _Biomet implements Biomet {
   int get index;
   @override
   @JsonKey(name: "condition")
-  BiometCondition get condition;
+  String get condition;
   @override
   @JsonKey(ignore: true)
   _$$BiometImplCopyWith<_$BiometImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Hour _$HourFromJson(Map<String, dynamic> json) {
+  return _Hour.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Hour {
+  @JsonKey(name: "hour")
+  String get hour => throw _privateConstructorUsedError;
+  @JsonKey(name: "hour_ts")
+  int get hourTs => throw _privateConstructorUsedError;
+  @JsonKey(name: "temp")
+  int get temp => throw _privateConstructorUsedError;
+  @JsonKey(name: "feels_like")
+  int get feelsLike => throw _privateConstructorUsedError;
+  @JsonKey(name: "icon")
+  String get icon => throw _privateConstructorUsedError;
+  @JsonKey(name: "condition")
+  String get condition => throw _privateConstructorUsedError;
+  @JsonKey(name: "cloudness")
+  double get cloudness => throw _privateConstructorUsedError;
+  @JsonKey(name: "prec_type")
+  int get precType => throw _privateConstructorUsedError;
+  @JsonKey(name: "prec_strength")
+  double get precStrength => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_thunder")
+  bool get isThunder => throw _privateConstructorUsedError;
+  @JsonKey(name: "wind_dir")
+  String get windDir => throw _privateConstructorUsedError;
+  @JsonKey(name: "wind_speed")
+  double get windSpeed => throw _privateConstructorUsedError;
+  @JsonKey(name: "wind_gust")
+  double get windGust => throw _privateConstructorUsedError;
+  @JsonKey(name: "pressure_mm")
+  int get pressureMm => throw _privateConstructorUsedError;
+  @JsonKey(name: "pressure_pa")
+  int get pressurePa => throw _privateConstructorUsedError;
+  @JsonKey(name: "humidity")
+  int get humidity => throw _privateConstructorUsedError;
+  @JsonKey(name: "uv_index")
+  int get uvIndex => throw _privateConstructorUsedError;
+  @JsonKey(name: "soil_temp")
+  int get soilTemp => throw _privateConstructorUsedError;
+  @JsonKey(name: "soil_moisture")
+  double get soilMoisture => throw _privateConstructorUsedError;
+  @JsonKey(name: "prec_mm")
+  double get precMm => throw _privateConstructorUsedError;
+  @JsonKey(name: "prec_period")
+  int get precPeriod => throw _privateConstructorUsedError;
+  @JsonKey(name: "prec_prob")
+  int get precProb => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $HourCopyWith<Hour> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HourCopyWith<$Res> {
+  factory $HourCopyWith(Hour value, $Res Function(Hour) then) =
+      _$HourCopyWithImpl<$Res, Hour>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: "hour") String hour,
+      @JsonKey(name: "hour_ts") int hourTs,
+      @JsonKey(name: "temp") int temp,
+      @JsonKey(name: "feels_like") int feelsLike,
+      @JsonKey(name: "icon") String icon,
+      @JsonKey(name: "condition") String condition,
+      @JsonKey(name: "cloudness") double cloudness,
+      @JsonKey(name: "prec_type") int precType,
+      @JsonKey(name: "prec_strength") double precStrength,
+      @JsonKey(name: "is_thunder") bool isThunder,
+      @JsonKey(name: "wind_dir") String windDir,
+      @JsonKey(name: "wind_speed") double windSpeed,
+      @JsonKey(name: "wind_gust") double windGust,
+      @JsonKey(name: "pressure_mm") int pressureMm,
+      @JsonKey(name: "pressure_pa") int pressurePa,
+      @JsonKey(name: "humidity") int humidity,
+      @JsonKey(name: "uv_index") int uvIndex,
+      @JsonKey(name: "soil_temp") int soilTemp,
+      @JsonKey(name: "soil_moisture") double soilMoisture,
+      @JsonKey(name: "prec_mm") double precMm,
+      @JsonKey(name: "prec_period") int precPeriod,
+      @JsonKey(name: "prec_prob") int precProb});
+}
+
+/// @nodoc
+class _$HourCopyWithImpl<$Res, $Val extends Hour>
+    implements $HourCopyWith<$Res> {
+  _$HourCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hour = null,
+    Object? hourTs = null,
+    Object? temp = null,
+    Object? feelsLike = null,
+    Object? icon = null,
+    Object? condition = null,
+    Object? cloudness = null,
+    Object? precType = null,
+    Object? precStrength = null,
+    Object? isThunder = null,
+    Object? windDir = null,
+    Object? windSpeed = null,
+    Object? windGust = null,
+    Object? pressureMm = null,
+    Object? pressurePa = null,
+    Object? humidity = null,
+    Object? uvIndex = null,
+    Object? soilTemp = null,
+    Object? soilMoisture = null,
+    Object? precMm = null,
+    Object? precPeriod = null,
+    Object? precProb = null,
+  }) {
+    return _then(_value.copyWith(
+      hour: null == hour
+          ? _value.hour
+          : hour // ignore: cast_nullable_to_non_nullable
+              as String,
+      hourTs: null == hourTs
+          ? _value.hourTs
+          : hourTs // ignore: cast_nullable_to_non_nullable
+              as int,
+      temp: null == temp
+          ? _value.temp
+          : temp // ignore: cast_nullable_to_non_nullable
+              as int,
+      feelsLike: null == feelsLike
+          ? _value.feelsLike
+          : feelsLike // ignore: cast_nullable_to_non_nullable
+              as int,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
+      condition: null == condition
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String,
+      cloudness: null == cloudness
+          ? _value.cloudness
+          : cloudness // ignore: cast_nullable_to_non_nullable
+              as double,
+      precType: null == precType
+          ? _value.precType
+          : precType // ignore: cast_nullable_to_non_nullable
+              as int,
+      precStrength: null == precStrength
+          ? _value.precStrength
+          : precStrength // ignore: cast_nullable_to_non_nullable
+              as double,
+      isThunder: null == isThunder
+          ? _value.isThunder
+          : isThunder // ignore: cast_nullable_to_non_nullable
+              as bool,
+      windDir: null == windDir
+          ? _value.windDir
+          : windDir // ignore: cast_nullable_to_non_nullable
+              as String,
+      windSpeed: null == windSpeed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as double,
+      windGust: null == windGust
+          ? _value.windGust
+          : windGust // ignore: cast_nullable_to_non_nullable
+              as double,
+      pressureMm: null == pressureMm
+          ? _value.pressureMm
+          : pressureMm // ignore: cast_nullable_to_non_nullable
+              as int,
+      pressurePa: null == pressurePa
+          ? _value.pressurePa
+          : pressurePa // ignore: cast_nullable_to_non_nullable
+              as int,
+      humidity: null == humidity
+          ? _value.humidity
+          : humidity // ignore: cast_nullable_to_non_nullable
+              as int,
+      uvIndex: null == uvIndex
+          ? _value.uvIndex
+          : uvIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      soilTemp: null == soilTemp
+          ? _value.soilTemp
+          : soilTemp // ignore: cast_nullable_to_non_nullable
+              as int,
+      soilMoisture: null == soilMoisture
+          ? _value.soilMoisture
+          : soilMoisture // ignore: cast_nullable_to_non_nullable
+              as double,
+      precMm: null == precMm
+          ? _value.precMm
+          : precMm // ignore: cast_nullable_to_non_nullable
+              as double,
+      precPeriod: null == precPeriod
+          ? _value.precPeriod
+          : precPeriod // ignore: cast_nullable_to_non_nullable
+              as int,
+      precProb: null == precProb
+          ? _value.precProb
+          : precProb // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$HourImplCopyWith<$Res> implements $HourCopyWith<$Res> {
+  factory _$$HourImplCopyWith(
+          _$HourImpl value, $Res Function(_$HourImpl) then) =
+      __$$HourImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: "hour") String hour,
+      @JsonKey(name: "hour_ts") int hourTs,
+      @JsonKey(name: "temp") int temp,
+      @JsonKey(name: "feels_like") int feelsLike,
+      @JsonKey(name: "icon") String icon,
+      @JsonKey(name: "condition") String condition,
+      @JsonKey(name: "cloudness") double cloudness,
+      @JsonKey(name: "prec_type") int precType,
+      @JsonKey(name: "prec_strength") double precStrength,
+      @JsonKey(name: "is_thunder") bool isThunder,
+      @JsonKey(name: "wind_dir") String windDir,
+      @JsonKey(name: "wind_speed") double windSpeed,
+      @JsonKey(name: "wind_gust") double windGust,
+      @JsonKey(name: "pressure_mm") int pressureMm,
+      @JsonKey(name: "pressure_pa") int pressurePa,
+      @JsonKey(name: "humidity") int humidity,
+      @JsonKey(name: "uv_index") int uvIndex,
+      @JsonKey(name: "soil_temp") int soilTemp,
+      @JsonKey(name: "soil_moisture") double soilMoisture,
+      @JsonKey(name: "prec_mm") double precMm,
+      @JsonKey(name: "prec_period") int precPeriod,
+      @JsonKey(name: "prec_prob") int precProb});
+}
+
+/// @nodoc
+class __$$HourImplCopyWithImpl<$Res>
+    extends _$HourCopyWithImpl<$Res, _$HourImpl>
+    implements _$$HourImplCopyWith<$Res> {
+  __$$HourImplCopyWithImpl(_$HourImpl _value, $Res Function(_$HourImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hour = null,
+    Object? hourTs = null,
+    Object? temp = null,
+    Object? feelsLike = null,
+    Object? icon = null,
+    Object? condition = null,
+    Object? cloudness = null,
+    Object? precType = null,
+    Object? precStrength = null,
+    Object? isThunder = null,
+    Object? windDir = null,
+    Object? windSpeed = null,
+    Object? windGust = null,
+    Object? pressureMm = null,
+    Object? pressurePa = null,
+    Object? humidity = null,
+    Object? uvIndex = null,
+    Object? soilTemp = null,
+    Object? soilMoisture = null,
+    Object? precMm = null,
+    Object? precPeriod = null,
+    Object? precProb = null,
+  }) {
+    return _then(_$HourImpl(
+      hour: null == hour
+          ? _value.hour
+          : hour // ignore: cast_nullable_to_non_nullable
+              as String,
+      hourTs: null == hourTs
+          ? _value.hourTs
+          : hourTs // ignore: cast_nullable_to_non_nullable
+              as int,
+      temp: null == temp
+          ? _value.temp
+          : temp // ignore: cast_nullable_to_non_nullable
+              as int,
+      feelsLike: null == feelsLike
+          ? _value.feelsLike
+          : feelsLike // ignore: cast_nullable_to_non_nullable
+              as int,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
+      condition: null == condition
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String,
+      cloudness: null == cloudness
+          ? _value.cloudness
+          : cloudness // ignore: cast_nullable_to_non_nullable
+              as double,
+      precType: null == precType
+          ? _value.precType
+          : precType // ignore: cast_nullable_to_non_nullable
+              as int,
+      precStrength: null == precStrength
+          ? _value.precStrength
+          : precStrength // ignore: cast_nullable_to_non_nullable
+              as double,
+      isThunder: null == isThunder
+          ? _value.isThunder
+          : isThunder // ignore: cast_nullable_to_non_nullable
+              as bool,
+      windDir: null == windDir
+          ? _value.windDir
+          : windDir // ignore: cast_nullable_to_non_nullable
+              as String,
+      windSpeed: null == windSpeed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as double,
+      windGust: null == windGust
+          ? _value.windGust
+          : windGust // ignore: cast_nullable_to_non_nullable
+              as double,
+      pressureMm: null == pressureMm
+          ? _value.pressureMm
+          : pressureMm // ignore: cast_nullable_to_non_nullable
+              as int,
+      pressurePa: null == pressurePa
+          ? _value.pressurePa
+          : pressurePa // ignore: cast_nullable_to_non_nullable
+              as int,
+      humidity: null == humidity
+          ? _value.humidity
+          : humidity // ignore: cast_nullable_to_non_nullable
+              as int,
+      uvIndex: null == uvIndex
+          ? _value.uvIndex
+          : uvIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      soilTemp: null == soilTemp
+          ? _value.soilTemp
+          : soilTemp // ignore: cast_nullable_to_non_nullable
+              as int,
+      soilMoisture: null == soilMoisture
+          ? _value.soilMoisture
+          : soilMoisture // ignore: cast_nullable_to_non_nullable
+              as double,
+      precMm: null == precMm
+          ? _value.precMm
+          : precMm // ignore: cast_nullable_to_non_nullable
+              as double,
+      precPeriod: null == precPeriod
+          ? _value.precPeriod
+          : precPeriod // ignore: cast_nullable_to_non_nullable
+              as int,
+      precProb: null == precProb
+          ? _value.precProb
+          : precProb // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$HourImpl implements _Hour {
+  const _$HourImpl(
+      {@JsonKey(name: "hour") required this.hour,
+      @JsonKey(name: "hour_ts") required this.hourTs,
+      @JsonKey(name: "temp") required this.temp,
+      @JsonKey(name: "feels_like") required this.feelsLike,
+      @JsonKey(name: "icon") required this.icon,
+      @JsonKey(name: "condition") required this.condition,
+      @JsonKey(name: "cloudness") required this.cloudness,
+      @JsonKey(name: "prec_type") required this.precType,
+      @JsonKey(name: "prec_strength") required this.precStrength,
+      @JsonKey(name: "is_thunder") required this.isThunder,
+      @JsonKey(name: "wind_dir") required this.windDir,
+      @JsonKey(name: "wind_speed") required this.windSpeed,
+      @JsonKey(name: "wind_gust") required this.windGust,
+      @JsonKey(name: "pressure_mm") required this.pressureMm,
+      @JsonKey(name: "pressure_pa") required this.pressurePa,
+      @JsonKey(name: "humidity") required this.humidity,
+      @JsonKey(name: "uv_index") required this.uvIndex,
+      @JsonKey(name: "soil_temp") required this.soilTemp,
+      @JsonKey(name: "soil_moisture") required this.soilMoisture,
+      @JsonKey(name: "prec_mm") required this.precMm,
+      @JsonKey(name: "prec_period") required this.precPeriod,
+      @JsonKey(name: "prec_prob") required this.precProb});
+
+  factory _$HourImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HourImplFromJson(json);
+
+  @override
+  @JsonKey(name: "hour")
+  final String hour;
+  @override
+  @JsonKey(name: "hour_ts")
+  final int hourTs;
+  @override
+  @JsonKey(name: "temp")
+  final int temp;
+  @override
+  @JsonKey(name: "feels_like")
+  final int feelsLike;
+  @override
+  @JsonKey(name: "icon")
+  final String icon;
+  @override
+  @JsonKey(name: "condition")
+  final String condition;
+  @override
+  @JsonKey(name: "cloudness")
+  final double cloudness;
+  @override
+  @JsonKey(name: "prec_type")
+  final int precType;
+  @override
+  @JsonKey(name: "prec_strength")
+  final double precStrength;
+  @override
+  @JsonKey(name: "is_thunder")
+  final bool isThunder;
+  @override
+  @JsonKey(name: "wind_dir")
+  final String windDir;
+  @override
+  @JsonKey(name: "wind_speed")
+  final double windSpeed;
+  @override
+  @JsonKey(name: "wind_gust")
+  final double windGust;
+  @override
+  @JsonKey(name: "pressure_mm")
+  final int pressureMm;
+  @override
+  @JsonKey(name: "pressure_pa")
+  final int pressurePa;
+  @override
+  @JsonKey(name: "humidity")
+  final int humidity;
+  @override
+  @JsonKey(name: "uv_index")
+  final int uvIndex;
+  @override
+  @JsonKey(name: "soil_temp")
+  final int soilTemp;
+  @override
+  @JsonKey(name: "soil_moisture")
+  final double soilMoisture;
+  @override
+  @JsonKey(name: "prec_mm")
+  final double precMm;
+  @override
+  @JsonKey(name: "prec_period")
+  final int precPeriod;
+  @override
+  @JsonKey(name: "prec_prob")
+  final int precProb;
+
+  @override
+  String toString() {
+    return 'Hour(hour: $hour, hourTs: $hourTs, temp: $temp, feelsLike: $feelsLike, icon: $icon, condition: $condition, cloudness: $cloudness, precType: $precType, precStrength: $precStrength, isThunder: $isThunder, windDir: $windDir, windSpeed: $windSpeed, windGust: $windGust, pressureMm: $pressureMm, pressurePa: $pressurePa, humidity: $humidity, uvIndex: $uvIndex, soilTemp: $soilTemp, soilMoisture: $soilMoisture, precMm: $precMm, precPeriod: $precPeriod, precProb: $precProb)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HourImpl &&
+            (identical(other.hour, hour) || other.hour == hour) &&
+            (identical(other.hourTs, hourTs) || other.hourTs == hourTs) &&
+            (identical(other.temp, temp) || other.temp == temp) &&
+            (identical(other.feelsLike, feelsLike) ||
+                other.feelsLike == feelsLike) &&
+            (identical(other.icon, icon) || other.icon == icon) &&
+            (identical(other.condition, condition) ||
+                other.condition == condition) &&
+            (identical(other.cloudness, cloudness) ||
+                other.cloudness == cloudness) &&
+            (identical(other.precType, precType) ||
+                other.precType == precType) &&
+            (identical(other.precStrength, precStrength) ||
+                other.precStrength == precStrength) &&
+            (identical(other.isThunder, isThunder) ||
+                other.isThunder == isThunder) &&
+            (identical(other.windDir, windDir) || other.windDir == windDir) &&
+            (identical(other.windSpeed, windSpeed) ||
+                other.windSpeed == windSpeed) &&
+            (identical(other.windGust, windGust) ||
+                other.windGust == windGust) &&
+            (identical(other.pressureMm, pressureMm) ||
+                other.pressureMm == pressureMm) &&
+            (identical(other.pressurePa, pressurePa) ||
+                other.pressurePa == pressurePa) &&
+            (identical(other.humidity, humidity) ||
+                other.humidity == humidity) &&
+            (identical(other.uvIndex, uvIndex) || other.uvIndex == uvIndex) &&
+            (identical(other.soilTemp, soilTemp) ||
+                other.soilTemp == soilTemp) &&
+            (identical(other.soilMoisture, soilMoisture) ||
+                other.soilMoisture == soilMoisture) &&
+            (identical(other.precMm, precMm) || other.precMm == precMm) &&
+            (identical(other.precPeriod, precPeriod) ||
+                other.precPeriod == precPeriod) &&
+            (identical(other.precProb, precProb) ||
+                other.precProb == precProb));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        hour,
+        hourTs,
+        temp,
+        feelsLike,
+        icon,
+        condition,
+        cloudness,
+        precType,
+        precStrength,
+        isThunder,
+        windDir,
+        windSpeed,
+        windGust,
+        pressureMm,
+        pressurePa,
+        humidity,
+        uvIndex,
+        soilTemp,
+        soilMoisture,
+        precMm,
+        precPeriod,
+        precProb
+      ]);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HourImplCopyWith<_$HourImpl> get copyWith =>
+      __$$HourImplCopyWithImpl<_$HourImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$HourImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Hour implements Hour {
+  const factory _Hour(
+      {@JsonKey(name: "hour") required final String hour,
+      @JsonKey(name: "hour_ts") required final int hourTs,
+      @JsonKey(name: "temp") required final int temp,
+      @JsonKey(name: "feels_like") required final int feelsLike,
+      @JsonKey(name: "icon") required final String icon,
+      @JsonKey(name: "condition") required final String condition,
+      @JsonKey(name: "cloudness") required final double cloudness,
+      @JsonKey(name: "prec_type") required final int precType,
+      @JsonKey(name: "prec_strength") required final double precStrength,
+      @JsonKey(name: "is_thunder") required final bool isThunder,
+      @JsonKey(name: "wind_dir") required final String windDir,
+      @JsonKey(name: "wind_speed") required final double windSpeed,
+      @JsonKey(name: "wind_gust") required final double windGust,
+      @JsonKey(name: "pressure_mm") required final int pressureMm,
+      @JsonKey(name: "pressure_pa") required final int pressurePa,
+      @JsonKey(name: "humidity") required final int humidity,
+      @JsonKey(name: "uv_index") required final int uvIndex,
+      @JsonKey(name: "soil_temp") required final int soilTemp,
+      @JsonKey(name: "soil_moisture") required final double soilMoisture,
+      @JsonKey(name: "prec_mm") required final double precMm,
+      @JsonKey(name: "prec_period") required final int precPeriod,
+      @JsonKey(name: "prec_prob") required final int precProb}) = _$HourImpl;
+
+  factory _Hour.fromJson(Map<String, dynamic> json) = _$HourImpl.fromJson;
+
+  @override
+  @JsonKey(name: "hour")
+  String get hour;
+  @override
+  @JsonKey(name: "hour_ts")
+  int get hourTs;
+  @override
+  @JsonKey(name: "temp")
+  int get temp;
+  @override
+  @JsonKey(name: "feels_like")
+  int get feelsLike;
+  @override
+  @JsonKey(name: "icon")
+  String get icon;
+  @override
+  @JsonKey(name: "condition")
+  String get condition;
+  @override
+  @JsonKey(name: "cloudness")
+  double get cloudness;
+  @override
+  @JsonKey(name: "prec_type")
+  int get precType;
+  @override
+  @JsonKey(name: "prec_strength")
+  double get precStrength;
+  @override
+  @JsonKey(name: "is_thunder")
+  bool get isThunder;
+  @override
+  @JsonKey(name: "wind_dir")
+  String get windDir;
+  @override
+  @JsonKey(name: "wind_speed")
+  double get windSpeed;
+  @override
+  @JsonKey(name: "wind_gust")
+  double get windGust;
+  @override
+  @JsonKey(name: "pressure_mm")
+  int get pressureMm;
+  @override
+  @JsonKey(name: "pressure_pa")
+  int get pressurePa;
+  @override
+  @JsonKey(name: "humidity")
+  int get humidity;
+  @override
+  @JsonKey(name: "uv_index")
+  int get uvIndex;
+  @override
+  @JsonKey(name: "soil_temp")
+  int get soilTemp;
+  @override
+  @JsonKey(name: "soil_moisture")
+  double get soilMoisture;
+  @override
+  @JsonKey(name: "prec_mm")
+  double get precMm;
+  @override
+  @JsonKey(name: "prec_period")
+  int get precPeriod;
+  @override
+  @JsonKey(name: "prec_prob")
+  int get precProb;
+  @override
+  @JsonKey(ignore: true)
+  _$$HourImplCopyWith<_$HourImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2111,7 +2900,7 @@ mixin _$Day {
   @JsonKey(name: "wind_gust")
   double get windGust => throw _privateConstructorUsedError;
   @JsonKey(name: "wind_dir")
-  WindDir get windDir => throw _privateConstructorUsedError;
+  String get windDir => throw _privateConstructorUsedError;
   @JsonKey(name: "pressure_mm")
   int get pressureMm => throw _privateConstructorUsedError;
   @JsonKey(name: "pressure_pa")
@@ -2121,7 +2910,7 @@ mixin _$Day {
   @JsonKey(name: "soil_temp")
   int get soilTemp => throw _privateConstructorUsedError;
   @JsonKey(name: "soil_moisture")
-  int get soilMoisture => throw _privateConstructorUsedError;
+  double get soilMoisture => throw _privateConstructorUsedError;
   @JsonKey(name: "prec_mm")
   double get precMm => throw _privateConstructorUsedError;
   @JsonKey(name: "prec_prob")
@@ -2135,9 +2924,9 @@ mixin _$Day {
   @JsonKey(name: "prec_strength")
   double get precStrength => throw _privateConstructorUsedError;
   @JsonKey(name: "icon")
-  Icon get icon => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
   @JsonKey(name: "condition")
-  FactCondition get condition => throw _privateConstructorUsedError;
+  String get condition => throw _privateConstructorUsedError;
   @JsonKey(name: "uv_index")
   int? get uvIndex => throw _privateConstructorUsedError;
   @JsonKey(name: "feels_like")
@@ -2145,7 +2934,7 @@ mixin _$Day {
   @JsonKey(name: "biomet")
   Biomet? get biomet => throw _privateConstructorUsedError;
   @JsonKey(name: "daytime")
-  Daytime get daytime => throw _privateConstructorUsedError;
+  String get daytime => throw _privateConstructorUsedError;
   @JsonKey(name: "polar")
   bool get polar => throw _privateConstructorUsedError;
   @JsonKey(name: "fresh_snow_mm")
@@ -2170,24 +2959,24 @@ abstract class $DayCopyWith<$Res> {
       @JsonKey(name: "temp_max") int? tempMax,
       @JsonKey(name: "wind_speed") double windSpeed,
       @JsonKey(name: "wind_gust") double windGust,
-      @JsonKey(name: "wind_dir") WindDir windDir,
+      @JsonKey(name: "wind_dir") String windDir,
       @JsonKey(name: "pressure_mm") int pressureMm,
       @JsonKey(name: "pressure_pa") int pressurePa,
       @JsonKey(name: "humidity") int humidity,
       @JsonKey(name: "soil_temp") int soilTemp,
-      @JsonKey(name: "soil_moisture") int soilMoisture,
+      @JsonKey(name: "soil_moisture") double soilMoisture,
       @JsonKey(name: "prec_mm") double precMm,
       @JsonKey(name: "prec_prob") int precProb,
       @JsonKey(name: "prec_period") int precPeriod,
       @JsonKey(name: "cloudness") double cloudness,
       @JsonKey(name: "prec_type") int precType,
       @JsonKey(name: "prec_strength") double precStrength,
-      @JsonKey(name: "icon") Icon icon,
-      @JsonKey(name: "condition") FactCondition condition,
+      @JsonKey(name: "icon") String icon,
+      @JsonKey(name: "condition") String condition,
       @JsonKey(name: "uv_index") int? uvIndex,
       @JsonKey(name: "feels_like") int feelsLike,
       @JsonKey(name: "biomet") Biomet? biomet,
-      @JsonKey(name: "daytime") Daytime daytime,
+      @JsonKey(name: "daytime") String daytime,
       @JsonKey(name: "polar") bool polar,
       @JsonKey(name: "fresh_snow_mm") int freshSnowMm,
       @JsonKey(name: "temp") int? temp});
@@ -2263,7 +3052,7 @@ class _$DayCopyWithImpl<$Res, $Val extends Day> implements $DayCopyWith<$Res> {
       windDir: null == windDir
           ? _value.windDir
           : windDir // ignore: cast_nullable_to_non_nullable
-              as WindDir,
+              as String,
       pressureMm: null == pressureMm
           ? _value.pressureMm
           : pressureMm // ignore: cast_nullable_to_non_nullable
@@ -2283,7 +3072,7 @@ class _$DayCopyWithImpl<$Res, $Val extends Day> implements $DayCopyWith<$Res> {
       soilMoisture: null == soilMoisture
           ? _value.soilMoisture
           : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       precMm: null == precMm
           ? _value.precMm
           : precMm // ignore: cast_nullable_to_non_nullable
@@ -2311,11 +3100,11 @@ class _$DayCopyWithImpl<$Res, $Val extends Day> implements $DayCopyWith<$Res> {
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as Icon,
+              as String,
       condition: null == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
-              as FactCondition,
+              as String,
       uvIndex: freezed == uvIndex
           ? _value.uvIndex
           : uvIndex // ignore: cast_nullable_to_non_nullable
@@ -2331,7 +3120,7 @@ class _$DayCopyWithImpl<$Res, $Val extends Day> implements $DayCopyWith<$Res> {
       daytime: null == daytime
           ? _value.daytime
           : daytime // ignore: cast_nullable_to_non_nullable
-              as Daytime,
+              as String,
       polar: null == polar
           ? _value.polar
           : polar // ignore: cast_nullable_to_non_nullable
@@ -2373,24 +3162,24 @@ abstract class _$$DayImplCopyWith<$Res> implements $DayCopyWith<$Res> {
       @JsonKey(name: "temp_max") int? tempMax,
       @JsonKey(name: "wind_speed") double windSpeed,
       @JsonKey(name: "wind_gust") double windGust,
-      @JsonKey(name: "wind_dir") WindDir windDir,
+      @JsonKey(name: "wind_dir") String windDir,
       @JsonKey(name: "pressure_mm") int pressureMm,
       @JsonKey(name: "pressure_pa") int pressurePa,
       @JsonKey(name: "humidity") int humidity,
       @JsonKey(name: "soil_temp") int soilTemp,
-      @JsonKey(name: "soil_moisture") int soilMoisture,
+      @JsonKey(name: "soil_moisture") double soilMoisture,
       @JsonKey(name: "prec_mm") double precMm,
       @JsonKey(name: "prec_prob") int precProb,
       @JsonKey(name: "prec_period") int precPeriod,
       @JsonKey(name: "cloudness") double cloudness,
       @JsonKey(name: "prec_type") int precType,
       @JsonKey(name: "prec_strength") double precStrength,
-      @JsonKey(name: "icon") Icon icon,
-      @JsonKey(name: "condition") FactCondition condition,
+      @JsonKey(name: "icon") String icon,
+      @JsonKey(name: "condition") String condition,
       @JsonKey(name: "uv_index") int? uvIndex,
       @JsonKey(name: "feels_like") int feelsLike,
       @JsonKey(name: "biomet") Biomet? biomet,
-      @JsonKey(name: "daytime") Daytime daytime,
+      @JsonKey(name: "daytime") String daytime,
       @JsonKey(name: "polar") bool polar,
       @JsonKey(name: "fresh_snow_mm") int freshSnowMm,
       @JsonKey(name: "temp") int? temp});
@@ -2464,7 +3253,7 @@ class __$$DayImplCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$DayImpl>
       windDir: null == windDir
           ? _value.windDir
           : windDir // ignore: cast_nullable_to_non_nullable
-              as WindDir,
+              as String,
       pressureMm: null == pressureMm
           ? _value.pressureMm
           : pressureMm // ignore: cast_nullable_to_non_nullable
@@ -2484,7 +3273,7 @@ class __$$DayImplCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$DayImpl>
       soilMoisture: null == soilMoisture
           ? _value.soilMoisture
           : soilMoisture // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       precMm: null == precMm
           ? _value.precMm
           : precMm // ignore: cast_nullable_to_non_nullable
@@ -2512,11 +3301,11 @@ class __$$DayImplCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$DayImpl>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as Icon,
+              as String,
       condition: null == condition
           ? _value.condition
           : condition // ignore: cast_nullable_to_non_nullable
-              as FactCondition,
+              as String,
       uvIndex: freezed == uvIndex
           ? _value.uvIndex
           : uvIndex // ignore: cast_nullable_to_non_nullable
@@ -2532,7 +3321,7 @@ class __$$DayImplCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$DayImpl>
       daytime: null == daytime
           ? _value.daytime
           : daytime // ignore: cast_nullable_to_non_nullable
-              as Daytime,
+              as String,
       polar: null == polar
           ? _value.polar
           : polar // ignore: cast_nullable_to_non_nullable
@@ -2604,7 +3393,7 @@ class _$DayImpl implements _Day {
   final double windGust;
   @override
   @JsonKey(name: "wind_dir")
-  final WindDir windDir;
+  final String windDir;
   @override
   @JsonKey(name: "pressure_mm")
   final int pressureMm;
@@ -2619,7 +3408,7 @@ class _$DayImpl implements _Day {
   final int soilTemp;
   @override
   @JsonKey(name: "soil_moisture")
-  final int soilMoisture;
+  final double soilMoisture;
   @override
   @JsonKey(name: "prec_mm")
   final double precMm;
@@ -2640,10 +3429,10 @@ class _$DayImpl implements _Day {
   final double precStrength;
   @override
   @JsonKey(name: "icon")
-  final Icon icon;
+  final String icon;
   @override
   @JsonKey(name: "condition")
-  final FactCondition condition;
+  final String condition;
   @override
   @JsonKey(name: "uv_index")
   final int? uvIndex;
@@ -2655,7 +3444,7 @@ class _$DayImpl implements _Day {
   final Biomet? biomet;
   @override
   @JsonKey(name: "daytime")
-  final Daytime daytime;
+  final String daytime;
   @override
   @JsonKey(name: "polar")
   final bool polar;
@@ -2775,24 +3564,24 @@ abstract class _Day implements Day {
       @JsonKey(name: "temp_max") final int? tempMax,
       @JsonKey(name: "wind_speed") required final double windSpeed,
       @JsonKey(name: "wind_gust") required final double windGust,
-      @JsonKey(name: "wind_dir") required final WindDir windDir,
+      @JsonKey(name: "wind_dir") required final String windDir,
       @JsonKey(name: "pressure_mm") required final int pressureMm,
       @JsonKey(name: "pressure_pa") required final int pressurePa,
       @JsonKey(name: "humidity") required final int humidity,
       @JsonKey(name: "soil_temp") required final int soilTemp,
-      @JsonKey(name: "soil_moisture") required final int soilMoisture,
+      @JsonKey(name: "soil_moisture") required final double soilMoisture,
       @JsonKey(name: "prec_mm") required final double precMm,
       @JsonKey(name: "prec_prob") required final int precProb,
       @JsonKey(name: "prec_period") required final int precPeriod,
       @JsonKey(name: "cloudness") required final double cloudness,
       @JsonKey(name: "prec_type") required final int precType,
       @JsonKey(name: "prec_strength") required final double precStrength,
-      @JsonKey(name: "icon") required final Icon icon,
-      @JsonKey(name: "condition") required final FactCondition condition,
+      @JsonKey(name: "icon") required final String icon,
+      @JsonKey(name: "condition") required final String condition,
       @JsonKey(name: "uv_index") final int? uvIndex,
       @JsonKey(name: "feels_like") required final int feelsLike,
       @JsonKey(name: "biomet") final Biomet? biomet,
-      @JsonKey(name: "daytime") required final Daytime daytime,
+      @JsonKey(name: "daytime") required final String daytime,
       @JsonKey(name: "polar") required final bool polar,
       @JsonKey(name: "fresh_snow_mm") required final int freshSnowMm,
       @JsonKey(name: "temp") final int? temp}) = _$DayImpl;
@@ -2819,7 +3608,7 @@ abstract class _Day implements Day {
   double get windGust;
   @override
   @JsonKey(name: "wind_dir")
-  WindDir get windDir;
+  String get windDir;
   @override
   @JsonKey(name: "pressure_mm")
   int get pressureMm;
@@ -2834,7 +3623,7 @@ abstract class _Day implements Day {
   int get soilTemp;
   @override
   @JsonKey(name: "soil_moisture")
-  int get soilMoisture;
+  double get soilMoisture;
   @override
   @JsonKey(name: "prec_mm")
   double get precMm;
@@ -2855,10 +3644,10 @@ abstract class _Day implements Day {
   double get precStrength;
   @override
   @JsonKey(name: "icon")
-  Icon get icon;
+  String get icon;
   @override
   @JsonKey(name: "condition")
-  FactCondition get condition;
+  String get condition;
   @override
   @JsonKey(name: "uv_index")
   int? get uvIndex;
@@ -2870,7 +3659,7 @@ abstract class _Day implements Day {
   Biomet? get biomet;
   @override
   @JsonKey(name: "daytime")
-  Daytime get daytime;
+  String get daytime;
   @override
   @JsonKey(name: "polar")
   bool get polar;

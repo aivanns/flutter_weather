@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_application_3/Repositories/weather_repository.dart';
 
 part 'weather_event.dart';
@@ -12,10 +13,11 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       }
       emit(WeatherLoading());
       try {
-      final weatherData = await WeatherRepository().getWeather();
+      final weatherData = await WeatherRepository().getWeather('москва');
       emit(WeatherLoaded(weatherData: weatherData));
       } catch (e) {
       emit(WeatherLoadingFalilure(exception: e));
+      debugPrint(e.toString());
       }
 
     });

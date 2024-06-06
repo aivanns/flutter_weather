@@ -9,7 +9,7 @@ part of 'weather_model.dart';
 _$WeatherModelImpl _$$WeatherModelImplFromJson(Map<String, dynamic> json) =>
     _$WeatherModelImpl(
       now: (json['now'] as num).toInt(),
-      nowDt: DateTime.parse(json['now_dt'] as String),
+      nowDt: json['now_dt'] as String,
       info: Info.fromJson(json['info'] as Map<String, dynamic>),
       geoObject: GeoObject.fromJson(json['geo_object'] as Map<String, dynamic>),
       yesterday: Yesterday.fromJson(json['yesterday'] as Map<String, dynamic>),
@@ -22,7 +22,7 @@ _$WeatherModelImpl _$$WeatherModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$WeatherModelImplToJson(_$WeatherModelImpl instance) =>
     <String, dynamic>{
       'now': instance.now,
-      'now_dt': instance.nowDt.toIso8601String(),
+      'now_dt': instance.nowDt,
       'info': instance.info,
       'geo_object': instance.geoObject,
       'yesterday': instance.yesterday,
@@ -31,34 +31,31 @@ Map<String, dynamic> _$$WeatherModelImplToJson(_$WeatherModelImpl instance) =>
     };
 
 _$FactImpl _$$FactImplFromJson(Map<String, dynamic> json) => _$FactImpl(
-      obsTime: (json['obs_time'] as num?)?.toInt(),
-      uptime: (json['uptime'] as num?)?.toInt(),
+      obsTime: (json['obs_time'] as num).toInt(),
+      uptime: (json['uptime'] as num).toInt(),
       temp: (json['temp'] as num).toInt(),
       feelsLike: (json['feels_like'] as num).toInt(),
-      icon: $enumDecode(_$IconEnumMap, json['icon']),
-      condition: $enumDecode(_$FactConditionEnumMap, json['condition']),
+      icon: json['icon'] as String,
+      condition: json['condition'] as String,
       cloudness: (json['cloudness'] as num).toDouble(),
       precType: (json['prec_type'] as num).toInt(),
       precProb: (json['prec_prob'] as num).toInt(),
-      precStrength: (json['prec_strength'] as num).toDouble(),
+      precStrength: (json['prec_strength'] as num).toInt(),
       isThunder: json['is_thunder'] as bool,
       windSpeed: (json['wind_speed'] as num).toDouble(),
-      windDir: $enumDecode(_$WindDirEnumMap, json['wind_dir']),
+      windDir: json['wind_dir'] as String,
       pressureMm: (json['pressure_mm'] as num).toInt(),
       pressurePa: (json['pressure_pa'] as num).toInt(),
       humidity: (json['humidity'] as num).toInt(),
-      daytime: $enumDecodeNullable(_$DaytimeEnumMap, json['daytime']),
-      polar: json['polar'] as bool?,
-      season: json['season'] as String?,
-      source: json['source'] as String?,
-      soilMoisture: (json['soil_moisture'] as num).toInt(),
+      daytime: json['daytime'] as String,
+      polar: json['polar'] as bool,
+      season: json['season'] as String,
+      source: json['source'] as String,
+      accumPrec: AccumPrec.fromJson(json['accum_prec'] as Map<String, dynamic>),
+      soilMoisture: (json['soil_moisture'] as num).toDouble(),
       soilTemp: (json['soil_temp'] as num).toInt(),
       uvIndex: (json['uv_index'] as num).toInt(),
       windGust: (json['wind_gust'] as num).toDouble(),
-      hour: json['hour'] as String?,
-      hourTs: (json['hour_ts'] as num?)?.toInt(),
-      precMm: (json['prec_mm'] as num?)?.toDouble(),
-      precPeriod: (json['prec_period'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$FactImplToJson(_$FactImpl instance) =>
@@ -67,64 +64,42 @@ Map<String, dynamic> _$$FactImplToJson(_$FactImpl instance) =>
       'uptime': instance.uptime,
       'temp': instance.temp,
       'feels_like': instance.feelsLike,
-      'icon': _$IconEnumMap[instance.icon]!,
-      'condition': _$FactConditionEnumMap[instance.condition]!,
+      'icon': instance.icon,
+      'condition': instance.condition,
       'cloudness': instance.cloudness,
       'prec_type': instance.precType,
       'prec_prob': instance.precProb,
       'prec_strength': instance.precStrength,
       'is_thunder': instance.isThunder,
       'wind_speed': instance.windSpeed,
-      'wind_dir': _$WindDirEnumMap[instance.windDir]!,
+      'wind_dir': instance.windDir,
       'pressure_mm': instance.pressureMm,
       'pressure_pa': instance.pressurePa,
       'humidity': instance.humidity,
-      'daytime': _$DaytimeEnumMap[instance.daytime],
+      'daytime': instance.daytime,
       'polar': instance.polar,
       'season': instance.season,
       'source': instance.source,
+      'accum_prec': instance.accumPrec,
       'soil_moisture': instance.soilMoisture,
       'soil_temp': instance.soilTemp,
       'uv_index': instance.uvIndex,
       'wind_gust': instance.windGust,
-      'hour': instance.hour,
-      'hour_ts': instance.hourTs,
-      'prec_mm': instance.precMm,
-      'prec_period': instance.precPeriod,
     };
 
-const _$IconEnumMap = {
-  Icon.BKN_D: 'bkn_d',
-  Icon.BKN_N: 'bkn_n',
-  Icon.BKN_RA_D: 'bkn_-ra_d',
-  Icon.BKN_RA_N: 'bkn_-ra_n',
-  Icon.ICON_OVC_RA: 'ovc_-ra',
-  Icon.OVC: 'ovc',
-  Icon.OVC_RA: 'ovc_ra',
-  Icon.SKC_D: 'skc_d',
-  Icon.SKC_N: 'skc_n',
-};
+_$AccumPrecImpl _$$AccumPrecImplFromJson(Map<String, dynamic> json) =>
+    _$AccumPrecImpl(
+      the1: (json['1'] as num).toDouble(),
+      the3: (json['3'] as num).toDouble(),
+      the7: (json['7'] as num).toDouble(),
+    );
 
-const _$FactConditionEnumMap = {
-  FactCondition.CLEAR: 'clear',
-  FactCondition.CLOUDY: 'cloudy',
-  FactCondition.LIGHT_RAIN: 'light-rain',
-  FactCondition.OVERCAST: 'overcast',
-  FactCondition.PARTLY_CLOUDY: 'partly-cloudy',
-  FactCondition.RAIN: 'rain',
-};
-
-const _$WindDirEnumMap = {
-  WindDir.NW: 'nw',
-  WindDir.S: 's',
-  WindDir.SW: 'sw',
-  WindDir.W: 'w',
-};
-
-const _$DaytimeEnumMap = {
-  Daytime.D: 'd',
-  Daytime.N: 'n',
-};
+Map<String, dynamic> _$$AccumPrecImplToJson(_$AccumPrecImpl instance) =>
+    <String, dynamic>{
+      '1': instance.the1,
+      '3': instance.the3,
+      '7': instance.the7,
+    };
 
 _$ForecastImpl _$$ForecastImplFromJson(Map<String, dynamic> json) =>
     _$ForecastImpl(
@@ -139,7 +114,7 @@ _$ForecastImpl _$$ForecastImplFromJson(Map<String, dynamic> json) =>
       moonText: json['moon_text'] as String,
       parts: Parts.fromJson(json['parts'] as Map<String, dynamic>),
       hours: (json['hours'] as List<dynamic>)
-          .map((e) => Fact.fromJson(e as Map<String, dynamic>))
+          .map((e) => Hour.fromJson(e as Map<String, dynamic>))
           .toList(),
       biomet: json['biomet'] == null
           ? null
@@ -164,18 +139,65 @@ Map<String, dynamic> _$$ForecastImplToJson(_$ForecastImpl instance) =>
 
 _$BiometImpl _$$BiometImplFromJson(Map<String, dynamic> json) => _$BiometImpl(
       index: (json['index'] as num).toInt(),
-      condition: $enumDecode(_$BiometConditionEnumMap, json['condition']),
+      condition: json['condition'] as String,
     );
 
 Map<String, dynamic> _$$BiometImplToJson(_$BiometImpl instance) =>
     <String, dynamic>{
       'index': instance.index,
-      'condition': _$BiometConditionEnumMap[instance.condition]!,
+      'condition': instance.condition,
     };
 
-const _$BiometConditionEnumMap = {
-  BiometCondition.MAGNETIC_FIELD_0: 'magnetic-field_0',
-};
+_$HourImpl _$$HourImplFromJson(Map<String, dynamic> json) => _$HourImpl(
+      hour: json['hour'] as String,
+      hourTs: (json['hour_ts'] as num).toInt(),
+      temp: (json['temp'] as num).toInt(),
+      feelsLike: (json['feels_like'] as num).toInt(),
+      icon: json['icon'] as String,
+      condition: json['condition'] as String,
+      cloudness: (json['cloudness'] as num).toDouble(),
+      precType: (json['prec_type'] as num).toInt(),
+      precStrength: (json['prec_strength'] as num).toDouble(),
+      isThunder: json['is_thunder'] as bool,
+      windDir: json['wind_dir'] as String,
+      windSpeed: (json['wind_speed'] as num).toDouble(),
+      windGust: (json['wind_gust'] as num).toDouble(),
+      pressureMm: (json['pressure_mm'] as num).toInt(),
+      pressurePa: (json['pressure_pa'] as num).toInt(),
+      humidity: (json['humidity'] as num).toInt(),
+      uvIndex: (json['uv_index'] as num).toInt(),
+      soilTemp: (json['soil_temp'] as num).toInt(),
+      soilMoisture: (json['soil_moisture'] as num).toDouble(),
+      precMm: (json['prec_mm'] as num).toDouble(),
+      precPeriod: (json['prec_period'] as num).toInt(),
+      precProb: (json['prec_prob'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$$HourImplToJson(_$HourImpl instance) =>
+    <String, dynamic>{
+      'hour': instance.hour,
+      'hour_ts': instance.hourTs,
+      'temp': instance.temp,
+      'feels_like': instance.feelsLike,
+      'icon': instance.icon,
+      'condition': instance.condition,
+      'cloudness': instance.cloudness,
+      'prec_type': instance.precType,
+      'prec_strength': instance.precStrength,
+      'is_thunder': instance.isThunder,
+      'wind_dir': instance.windDir,
+      'wind_speed': instance.windSpeed,
+      'wind_gust': instance.windGust,
+      'pressure_mm': instance.pressureMm,
+      'pressure_pa': instance.pressurePa,
+      'humidity': instance.humidity,
+      'uv_index': instance.uvIndex,
+      'soil_temp': instance.soilTemp,
+      'soil_moisture': instance.soilMoisture,
+      'prec_mm': instance.precMm,
+      'prec_period': instance.precPeriod,
+      'prec_prob': instance.precProb,
+    };
 
 _$PartsImpl _$$PartsImplFromJson(Map<String, dynamic> json) => _$PartsImpl(
       day: Day.fromJson(json['day'] as Map<String, dynamic>),
@@ -203,26 +225,26 @@ _$DayImpl _$$DayImplFromJson(Map<String, dynamic> json) => _$DayImpl(
       tempMax: (json['temp_max'] as num?)?.toInt(),
       windSpeed: (json['wind_speed'] as num).toDouble(),
       windGust: (json['wind_gust'] as num).toDouble(),
-      windDir: $enumDecode(_$WindDirEnumMap, json['wind_dir']),
+      windDir: json['wind_dir'] as String,
       pressureMm: (json['pressure_mm'] as num).toInt(),
       pressurePa: (json['pressure_pa'] as num).toInt(),
       humidity: (json['humidity'] as num).toInt(),
       soilTemp: (json['soil_temp'] as num).toInt(),
-      soilMoisture: (json['soil_moisture'] as num).toInt(),
+      soilMoisture: (json['soil_moisture'] as num).toDouble(),
       precMm: (json['prec_mm'] as num).toDouble(),
       precProb: (json['prec_prob'] as num).toInt(),
       precPeriod: (json['prec_period'] as num).toInt(),
       cloudness: (json['cloudness'] as num).toDouble(),
       precType: (json['prec_type'] as num).toInt(),
       precStrength: (json['prec_strength'] as num).toDouble(),
-      icon: $enumDecode(_$IconEnumMap, json['icon']),
-      condition: $enumDecode(_$FactConditionEnumMap, json['condition']),
+      icon: json['icon'] as String,
+      condition: json['condition'] as String,
       uvIndex: (json['uv_index'] as num?)?.toInt(),
       feelsLike: (json['feels_like'] as num).toInt(),
       biomet: json['biomet'] == null
           ? null
           : Biomet.fromJson(json['biomet'] as Map<String, dynamic>),
-      daytime: $enumDecode(_$DaytimeEnumMap, json['daytime']),
+      daytime: json['daytime'] as String,
       polar: json['polar'] as bool,
       freshSnowMm: (json['fresh_snow_mm'] as num).toInt(),
       temp: (json['temp'] as num?)?.toInt(),
@@ -235,7 +257,7 @@ Map<String, dynamic> _$$DayImplToJson(_$DayImpl instance) => <String, dynamic>{
       'temp_max': instance.tempMax,
       'wind_speed': instance.windSpeed,
       'wind_gust': instance.windGust,
-      'wind_dir': _$WindDirEnumMap[instance.windDir]!,
+      'wind_dir': instance.windDir,
       'pressure_mm': instance.pressureMm,
       'pressure_pa': instance.pressurePa,
       'humidity': instance.humidity,
@@ -247,12 +269,12 @@ Map<String, dynamic> _$$DayImplToJson(_$DayImpl instance) => <String, dynamic>{
       'cloudness': instance.cloudness,
       'prec_type': instance.precType,
       'prec_strength': instance.precStrength,
-      'icon': _$IconEnumMap[instance.icon]!,
-      'condition': _$FactConditionEnumMap[instance.condition]!,
+      'icon': instance.icon,
+      'condition': instance.condition,
       'uv_index': instance.uvIndex,
       'feels_like': instance.feelsLike,
       'biomet': instance.biomet,
-      'daytime': _$DaytimeEnumMap[instance.daytime]!,
+      'daytime': instance.daytime,
       'polar': instance.polar,
       'fresh_snow_mm': instance.freshSnowMm,
       'temp': instance.temp,

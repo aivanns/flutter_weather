@@ -11,7 +11,7 @@ class WeatherModel with _$WeatherModel {
         @JsonKey(name: "now")
         required int now,
         @JsonKey(name: "now_dt")
-        required DateTime nowDt,
+        required String nowDt,
         @JsonKey(name: "info")
         required Info info,
         @JsonKey(name: "geo_object")
@@ -31,17 +31,17 @@ class WeatherModel with _$WeatherModel {
 class Fact with _$Fact {
     const factory Fact({
         @JsonKey(name: "obs_time")
-        int? obsTime,
+        required int obsTime,
         @JsonKey(name: "uptime")
-        int? uptime,
+        required int uptime,
         @JsonKey(name: "temp")
         required int temp,
         @JsonKey(name: "feels_like")
         required int feelsLike,
         @JsonKey(name: "icon")
-        required Icon icon,
+        required String icon,
         @JsonKey(name: "condition")
-        required FactCondition condition,
+        required String condition,
         @JsonKey(name: "cloudness")
         required double cloudness,
         @JsonKey(name: "prec_type")
@@ -49,13 +49,13 @@ class Fact with _$Fact {
         @JsonKey(name: "prec_prob")
         required int precProb,
         @JsonKey(name: "prec_strength")
-        required double precStrength,
+        required int precStrength,
         @JsonKey(name: "is_thunder")
         required bool isThunder,
         @JsonKey(name: "wind_speed")
         required double windSpeed,
         @JsonKey(name: "wind_dir")
-        required WindDir windDir,
+        required String windDir,
         @JsonKey(name: "pressure_mm")
         required int pressureMm,
         @JsonKey(name: "pressure_pa")
@@ -63,120 +63,41 @@ class Fact with _$Fact {
         @JsonKey(name: "humidity")
         required int humidity,
         @JsonKey(name: "daytime")
-        Daytime? daytime,
+        required String daytime,
         @JsonKey(name: "polar")
-        bool? polar,
+        required bool polar,
         @JsonKey(name: "season")
-        String? season,
+        required String season,
         @JsonKey(name: "source")
-        String? source,
+        required String source,
+        @JsonKey(name: "accum_prec")
+        required AccumPrec accumPrec,
         @JsonKey(name: "soil_moisture")
-        required int soilMoisture,
+        required double soilMoisture,
         @JsonKey(name: "soil_temp")
         required int soilTemp,
         @JsonKey(name: "uv_index")
         required int uvIndex,
         @JsonKey(name: "wind_gust")
         required double windGust,
-        @JsonKey(name: "hour")
-        String? hour,
-        @JsonKey(name: "hour_ts")
-        int? hourTs,
-        @JsonKey(name: "prec_mm")
-        double? precMm,
-        @JsonKey(name: "prec_period")
-        int? precPeriod,
     }) = _Fact;
 
     factory Fact.fromJson(Map<String, dynamic> json) => _$FactFromJson(json);
 }
 
-enum FactCondition {
-    @JsonValue("clear")
-    CLEAR,
-    @JsonValue("cloudy")
-    CLOUDY,
-    @JsonValue("light-rain")
-    LIGHT_RAIN,
-    @JsonValue("overcast")
-    OVERCAST,
-    @JsonValue("partly-cloudy")
-    PARTLY_CLOUDY,
-    @JsonValue("rain")
-    RAIN
+@freezed
+class AccumPrec with _$AccumPrec {
+    const factory AccumPrec({
+        @JsonKey(name: "1")
+        required double the1,
+        @JsonKey(name: "3")
+        required double the3,
+        @JsonKey(name: "7")
+        required double the7,
+    }) = _AccumPrec;
+
+    factory AccumPrec.fromJson(Map<String, dynamic> json) => _$AccumPrecFromJson(json);
 }
-
-final factConditionValues = EnumValues({
-    "clear": FactCondition.CLEAR,
-    "cloudy": FactCondition.CLOUDY,
-    "light-rain": FactCondition.LIGHT_RAIN,
-    "overcast": FactCondition.OVERCAST,
-    "partly-cloudy": FactCondition.PARTLY_CLOUDY,
-    "rain": FactCondition.RAIN
-});
-
-enum Daytime {
-    @JsonValue("d")
-    D,
-    @JsonValue("n")
-    N
-}
-
-final daytimeValues = EnumValues({
-    "d": Daytime.D,
-    "n": Daytime.N
-});
-
-enum Icon {
-    @JsonValue("bkn_d")
-    BKN_D,
-    @JsonValue("bkn_n")
-    BKN_N,
-    @JsonValue("bkn_-ra_d")
-    BKN_RA_D,
-    @JsonValue("bkn_-ra_n")
-    BKN_RA_N,
-    @JsonValue("ovc_-ra")
-    ICON_OVC_RA,
-    @JsonValue("ovc")
-    OVC,
-    @JsonValue("ovc_ra")
-    OVC_RA,
-    @JsonValue("skc_d")
-    SKC_D,
-    @JsonValue("skc_n")
-    SKC_N
-}
-
-final iconValues = EnumValues({
-    "bkn_d": Icon.BKN_D,
-    "bkn_n": Icon.BKN_N,
-    "bkn_-ra_d": Icon.BKN_RA_D,
-    "bkn_-ra_n": Icon.BKN_RA_N,
-    "ovc_-ra": Icon.ICON_OVC_RA,
-    "ovc": Icon.OVC,
-    "ovc_ra": Icon.OVC_RA,
-    "skc_d": Icon.SKC_D,
-    "skc_n": Icon.SKC_N
-});
-
-enum WindDir {
-    @JsonValue("nw")
-    NW,
-    @JsonValue("s")
-    S,
-    @JsonValue("sw")
-    SW,
-    @JsonValue("w")
-    W
-}
-
-final windDirValues = EnumValues({
-    "nw": WindDir.NW,
-    "s": WindDir.S,
-    "sw": WindDir.SW,
-    "w": WindDir.W
-});
 
 @freezed
 class Forecast with _$Forecast {
@@ -202,7 +123,7 @@ class Forecast with _$Forecast {
         @JsonKey(name: "parts")
         required Parts parts,
         @JsonKey(name: "hours")
-        required List<Fact> hours,
+        required List<Hour> hours,
         @JsonKey(name: "biomet")
         Biomet? biomet,
     }) = _Forecast;
@@ -216,20 +137,63 @@ class Biomet with _$Biomet {
         @JsonKey(name: "index")
         required int index,
         @JsonKey(name: "condition")
-        required BiometCondition condition,
+        required String condition,
     }) = _Biomet;
 
     factory Biomet.fromJson(Map<String, dynamic> json) => _$BiometFromJson(json);
 }
 
-enum BiometCondition {
-    @JsonValue("magnetic-field_0")
-    MAGNETIC_FIELD_0
-}
+@freezed
+class Hour with _$Hour {
+    const factory Hour({
+        @JsonKey(name: "hour")
+        required String hour,
+        @JsonKey(name: "hour_ts")
+        required int hourTs,
+        @JsonKey(name: "temp")
+        required int temp,
+        @JsonKey(name: "feels_like")
+        required int feelsLike,
+        @JsonKey(name: "icon")
+        required String icon,
+        @JsonKey(name: "condition")
+        required String condition,
+        @JsonKey(name: "cloudness")
+        required double cloudness,
+        @JsonKey(name: "prec_type")
+        required int precType,
+        @JsonKey(name: "prec_strength")
+        required double precStrength,
+        @JsonKey(name: "is_thunder")
+        required bool isThunder,
+        @JsonKey(name: "wind_dir")
+        required String windDir,
+        @JsonKey(name: "wind_speed")
+        required double windSpeed,
+        @JsonKey(name: "wind_gust")
+        required double windGust,
+        @JsonKey(name: "pressure_mm")
+        required int pressureMm,
+        @JsonKey(name: "pressure_pa")
+        required int pressurePa,
+        @JsonKey(name: "humidity")
+        required int humidity,
+        @JsonKey(name: "uv_index")
+        required int uvIndex,
+        @JsonKey(name: "soil_temp")
+        required int soilTemp,
+        @JsonKey(name: "soil_moisture")
+        required double soilMoisture,
+        @JsonKey(name: "prec_mm")
+        required double precMm,
+        @JsonKey(name: "prec_period")
+        required int precPeriod,
+        @JsonKey(name: "prec_prob")
+        required int precProb,
+    }) = _Hour;
 
-final biometConditionValues = EnumValues({
-    "magnetic-field_0": BiometCondition.MAGNETIC_FIELD_0
-});
+    factory Hour.fromJson(Map<String, dynamic> json) => _$HourFromJson(json);
+}
 
 @freezed
 class Parts with _$Parts {
@@ -267,7 +231,7 @@ class Day with _$Day {
         @JsonKey(name: "wind_gust")
         required double windGust,
         @JsonKey(name: "wind_dir")
-        required WindDir windDir,
+        required String windDir,
         @JsonKey(name: "pressure_mm")
         required int pressureMm,
         @JsonKey(name: "pressure_pa")
@@ -277,7 +241,7 @@ class Day with _$Day {
         @JsonKey(name: "soil_temp")
         required int soilTemp,
         @JsonKey(name: "soil_moisture")
-        required int soilMoisture,
+        required double soilMoisture,
         @JsonKey(name: "prec_mm")
         required double precMm,
         @JsonKey(name: "prec_prob")
@@ -291,9 +255,9 @@ class Day with _$Day {
         @JsonKey(name: "prec_strength")
         required double precStrength,
         @JsonKey(name: "icon")
-        required Icon icon,
+        required String icon,
         @JsonKey(name: "condition")
-        required FactCondition condition,
+        required String condition,
         @JsonKey(name: "uv_index")
         int? uvIndex,
         @JsonKey(name: "feels_like")
@@ -301,7 +265,7 @@ class Day with _$Day {
         @JsonKey(name: "biomet")
         Biomet? biomet,
         @JsonKey(name: "daytime")
-        required Daytime daytime,
+        required String daytime,
         @JsonKey(name: "polar")
         required bool polar,
         @JsonKey(name: "fresh_snow_mm")
@@ -405,16 +369,4 @@ class Yesterday with _$Yesterday {
     }) = _Yesterday;
 
     factory Yesterday.fromJson(Map<String, dynamic> json) => _$YesterdayFromJson(json);
-}
-
-class EnumValues<T> {
-    Map<String, T> map;
-    late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-            reverseMap = map.map((k, v) => MapEntry(v, k));
-            return reverseMap;
-    }
 }
