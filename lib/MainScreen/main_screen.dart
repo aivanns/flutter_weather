@@ -21,17 +21,26 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    _weatherBloc.add(LoadWeather());
+    _weatherBloc.add(LoadWeather(city: 'Москва'));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 4.w),
         child: Column(
           children: [
+            Container(
+              child: TextField(
+              controller: textController,
+              onChanged: (text) {
+              _weatherBloc.add(LoadWeather(city: text));
+              },
+            ),
+          ),
             BlocBuilder<WeatherBloc, WeatherState>(
               bloc: _weatherBloc,
               builder: (context, state) {
@@ -42,9 +51,6 @@ class _MainScreenState extends State<MainScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              child: TextField(),
-                            ),
                             Text('${wData['name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w400),),
                             Text('${wData['temp'].toString()}°C', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w400,)),
 
@@ -66,7 +72,16 @@ class _MainScreenState extends State<MainScreen> {
                   //return Text(state.weatherData.toString());
                 }
                 else {
-                  return Center(child: ElevatedButton(onPressed: () => WeatherRepository().getWeather('дубай'), child: const Text('reload')));
+                  // return TextField(
+                  //               controller: textController,
+                  //               onChanged: (text) {
+                  //                 _weatherBloc.add(LoadWeather(city: text));
+                  //               },
+                  //             );
+                  return Container(
+                    height: 80.h,
+                    child: Center(child: CircularProgressIndicator())
+                    );
                 }
               },
             ),

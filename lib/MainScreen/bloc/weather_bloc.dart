@@ -13,7 +13,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       }
       emit(WeatherLoading());
       try {
-      final weatherData = await WeatherRepository().getWeather('сызрань');
+      final weatherData = await WeatherRepository().getWeather(event.city);
       emit(WeatherLoaded(weatherData: weatherData));
       } catch (e) {
       emit(WeatherLoadingFalilure(exception: e));
