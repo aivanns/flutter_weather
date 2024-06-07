@@ -65,7 +65,7 @@ class WeatherRepository {
     debugPrint('lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']}, \nname: ${geo['name']}');
     return {
       'temp': response.data['data']['weatherByPoint']['now']['temperature'],
-      'name': 0
+      'name': geo['name']
     };
   }
 }

@@ -42,8 +42,11 @@ class _MainScreenState extends State<MainScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            //Text('${wData['country_name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w500),),
-                            //Text(wData['city_name'], style: const TextStyle(fontSize: 27, fontWeight: FontWeight.w400,)),
+                            Container(
+                              child: TextField(),
+                            ),
+                            Text('${wData['name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w400),),
+                            Text('${wData['temp'].toString()}°C', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w400,)),
 
                           ],
                         ),
