@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/Repositories/Models/weather_model.dart';
 
 class WeatherRepository {
   Map<String, String> headers = {
@@ -31,27 +28,44 @@ class WeatherRepository {
     },
       )
     );
-    List<String> geoData;   
-    geo.data['city'] == null ? geoData = [] : geoData = []; 
+    Map<String, dynamic> geoData;
+    final geoHelper = geo.data['suggestions'][0]['data'];
+    geo.data['city'] != 'null' ? geoData = {
+      'geo_lat': geoHelper['geo_lat'],
+      'geo_lon': geoHelper['geo_lon'],
+      'name': geoHelper['city']
+    } : geoData = {
+      'geo_lat': geoHelper['geo_lat'],
+      'geo_lon': geoHelper['geo_lon'],
+      'name': geoHelper['settlement']
+    };
+    return geoData;
     //return [geo.data['suggestions'][0]['data']['geo_lon'].toString(), geo.data['suggestions'][0]['data']['geo_lat'].toString()];
   }
 
   Future<Map<String, dynamic>> getWeather(String city) async {
-    final geo = getGeo(city);
+    final geo = await getGeo(city);
 
-    final response = await dio.get(
-      'https://api.weather.yandex.ru/v2/forecast?lat=52.593122&lon=37.617348',
+    final query = """{
+    weatherByPoint(request: { lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']} }) {
+      now {
+        temperature
+      }
+    }
+  }""";
+
+    final response = await dio.post(
+      'https://api.weather.yandex.ru/graphql/query',
+      data: {'query': query},
       options: Options(
         headers: headers
       )
     );
-    final resp = WeatherModel.fromJson(response.data);
-    Map<String, dynamic> data = {
-      'country_name': resp.geoObject.country.name,
-      'city_name': resp.geoObject.locality.name,
-      'temp': resp.fact.temp,
-      'icon': resp.fact.icon,
+    debugPrint(response.data['data']['weatherByPoint']['now']['temperature'].toString());
+    debugPrint('lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']}, \nname: ${geo['name']}');
+    return {
+      'temp': response.data['data']['weatherByPoint']['now']['temperature'],
+      'name': 0
     };
-    return data;
   }
 }

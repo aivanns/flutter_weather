@@ -42,8 +42,8 @@ class _MainScreenState extends State<MainScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('${wData['country_name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w500),),
-                            Text(wData['city_name'], style: const TextStyle(fontSize: 27, fontWeight: FontWeight.w400,)),
+                            //Text('${wData['country_name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w500),),
+                            //Text(wData['city_name'], style: const TextStyle(fontSize: 27, fontWeight: FontWeight.w400,)),
 
                           ],
                         ),
@@ -63,7 +63,7 @@ class _MainScreenState extends State<MainScreen> {
                   //return Text(state.weatherData.toString());
                 }
                 else {
-                  return Center(child: ElevatedButton(onPressed: () => WeatherRepository().getGeo('сергиев посад'), child: const Text('reload')));
+                  return Center(child: ElevatedButton(onPressed: () => WeatherRepository().getWeather('дубай'), child: const Text('reload')));
                 }
               },
             ),
