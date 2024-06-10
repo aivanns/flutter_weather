@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 
 import 'bloc/weather_bloc.dart';
@@ -51,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                           children: [
                             Text('${wData['name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w400),),
                             Text('${wData['temp'].toString()}°C', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w400,)),
-
+                            SvgPicture.network(wData['icon'])
                           ],
                         ),
                         // Column(

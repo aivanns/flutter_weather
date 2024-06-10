@@ -20,6 +20,7 @@ class WeatherRepository {
         "query": city
       },
       options: Options(
+        receiveTimeout: const Duration(seconds: 3),
         method: 'POST',
         headers: {
         "Content-Type": "application/json",
@@ -50,6 +51,7 @@ class WeatherRepository {
     weatherByPoint(request: { lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']} }) {
       now {
         temperature
+        icon(format: SVG)
       }
     }
   }""";
@@ -58,14 +60,16 @@ class WeatherRepository {
       'https://api.weather.yandex.ru/graphql/query',
       data: {'query': query},
       options: Options(
+        receiveTimeout: const Duration(seconds: 3),
         headers: headers
       )
     );
-    //debugPrint(response.data['data']['weatherByPoint']['now']['temperature'].toString());
-    //debugPrint('lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']}, \nname: ${geo['name']}');
+    final weatherHelper = response.data['data']['weatherByPoint']['now'];
+    debugPrint(weatherHelper['icon'].toString());
     return {
-      'temp': response.data['data']['weatherByPoint']['now']['temperature'],
-      'name': geo['name']
+      'temp': weatherHelper['temperature'],
+      'name': geo['name'],
+      'icon': weatherHelper['icon']
     };
   }
 }
