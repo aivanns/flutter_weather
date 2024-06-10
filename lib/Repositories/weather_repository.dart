@@ -53,8 +53,19 @@ class WeatherRepository {
         temperature
         icon(format: SVG)
       }
+      forecast {
+      hours(first: 24) {
+        edges {
+          node {
+            time
+            temperature
+            icon(format: SVG)
+          }
+        }
+      }
     }
-  }""";
+  }
+}""";
 
     final response = await dio.post(
       'https://api.weather.yandex.ru/graphql/query',
@@ -70,5 +81,48 @@ class WeatherRepository {
       'name': geo['name'],
       'icon': weatherHelper['icon']
     };
+  }
+
+  Future<List<Map<String, dynamic>>> getForecast(String city) async {
+    final geo = await getGeo(city);
+
+    final query = """{
+    weatherByPoint(request: { lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']} }) {
+      forecast {
+      hours(first: 24) {
+        edges {
+          node {
+            time
+            temperature
+            icon(format: SVG)
+          }
+        }
+      }
+    }
+  }
+}""";
+
+    final response = await dio.post(
+      'https://api.weather.yandex.ru/graphql/query',
+      data: {'query': query},
+      options: Options(
+        receiveTimeout: const Duration(seconds: 3),
+        headers: headers
+      )
+    );
+    final List<dynamic> weatherHelper = response.data['data']['weatherByPoint']['forecast']['hours']['edges'];
+
+    List<Map<String, dynamic>> forecastData = [];
+
+    for (var a = 0; a < weatherHelper.length; a++) {
+      forecastData.add(
+        {
+          'time': weatherHelper[a]['node']['time'].toString().substring(11).split('').reversed.join().substring(9).split('').reversed.join(),
+          'temp': weatherHelper[a]['node']['temperature'].toString(),
+          'icon': weatherHelper[a]['node']['icon'].toString(),
+        }
+      );
+    }
+    return forecastData;
   }
 }

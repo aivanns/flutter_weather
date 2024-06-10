@@ -14,10 +14,11 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoading());
       try {
       final weatherData = await WeatherRepository().getWeather(event.city);
-      emit(WeatherLoaded(weatherData: weatherData));
+      final forecastData = await WeatherRepository().getForecast(event.city);
+      emit(WeatherLoaded(weatherData: weatherData, forecastData: forecastData));
       } catch (e) {
       emit(WeatherLoadingFalilure(exception: e));
-      debugPrint('Город не найден');
+      debugPrint('Возникла ошибка!');
       }
 
     });

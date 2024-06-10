@@ -55,29 +55,56 @@ class _MainScreenState extends State<MainScreen> {
               },
             ),
           ),
+            SizedBox(height: 1.h,),
             BlocBuilder<WeatherBloc, WeatherState>(
               bloc: _weatherBloc,
               builder: (context, state) {
                 if (state is WeatherLoaded) {
                   final wData = state.weatherData;
+                  final fData = state.forecastData;
                   return Column(
                     children: [
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('${wData['name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w400),),
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text('${wData['temp'].toString()}°C', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w400,)),
                                 SizedBox(width: 2.w,),
                                 SvgPicture.network(wData['icon'], width: 10.w,)
+                                
                               ],
                             ),
-                            
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 20.0),
+                              height: 200.0,
+                              child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: state.forecastData.length,
+                              separatorBuilder: (context, index) => SizedBox(width: 8.w,),
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  children: [
+                                    Text(fData[index]['time'], style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                                    SvgPicture.network(fData[index]['icon'], width: 8.w,),
+                                    Text('${fData[index]['temp']}°C', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400)),
+                                  ],
+                                );
+                              },
+                            )
+                            )
                           ],
                         ),
                     ],
                     );
+                } else if (state is WeatherLoadingFalilure) {
+                  return const SizedBox(
+                    child: Text('Город не найден', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w400),),
+                  );
                 }
                 else {
                   return Container(
