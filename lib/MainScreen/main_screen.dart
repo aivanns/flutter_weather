@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(border: Border(),),
+              decoration: const BoxDecoration(border: Border(),),
               child: TextField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -89,9 +89,9 @@ class _MainScreenState extends State<MainScreen> {
                               itemBuilder: (context, index) {
                                 return Column(
                                   children: [
-                                    Text(fData[index]['time'], style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                                    Text(fData[index]['time'], style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
                                     SvgPicture.network(fData[index]['icon'], width: 8.w,),
-                                    Text('${fData[index]['temp']}°C', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400)),
+                                    Text('${fData[index]['temp']}°C', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w400)),
                                   ],
                                 );
                               },
@@ -107,7 +107,7 @@ class _MainScreenState extends State<MainScreen> {
                   );
                 }
                 else {
-                  return Container(
+                  return SizedBox(
                     height: 15.h,
                     child: const Center(child: CircularProgressIndicator())
                     );
