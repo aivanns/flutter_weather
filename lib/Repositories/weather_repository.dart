@@ -13,7 +13,7 @@ class WeatherRepository {
   );
 
 // Future<Map<String, dynamic>> getGeo(String city) async {
-      dynamic getGeo(String city) async {
+  dynamic getGeo(String city) async {
     final geo = await dio.post(
       'http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
       data: {
@@ -30,7 +30,7 @@ class WeatherRepository {
     );
     Map<String, dynamic> geoData;
     final geoHelper = geo.data['suggestions'][0]['data'];
-    geo.data['city'] != 'null' ? geoData = {
+    geoHelper['city'] != null ? geoData = {
       'geo_lat': geoHelper['geo_lat'],
       'geo_lon': geoHelper['geo_lon'],
       'name': geoHelper['city']
@@ -61,8 +61,8 @@ class WeatherRepository {
         headers: headers
       )
     );
-    debugPrint(response.data['data']['weatherByPoint']['now']['temperature'].toString());
-    debugPrint('lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']}, \nname: ${geo['name']}');
+    //debugPrint(response.data['data']['weatherByPoint']['now']['temperature'].toString());
+    //debugPrint('lat: ${geo['geo_lat']}, lon: ${geo['geo_lon']}, \nname: ${geo['name']}');
     return {
       'temp': response.data['data']['weatherByPoint']['now']['temperature'],
       'name': geo['name']
