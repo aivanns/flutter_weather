@@ -65,7 +65,6 @@ class WeatherRepository {
       )
     );
     final weatherHelper = response.data['data']['weatherByPoint']['now'];
-    debugPrint(weatherHelper['icon'].toString());
     return {
       'temp': weatherHelper['temperature'],
       'name': geo['name'],

@@ -29,11 +29,26 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 4.w),
+        padding: EdgeInsets.symmetric(vertical: 7.h, horizontal: 4.w),
         child: Column(
           children: [
             Container(
+              decoration: BoxDecoration(border: Border(),),
               child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(horizontal: 5.w),
+                filled: true,
+                fillColor: Colors.grey.withOpacity(0.25),
+                enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(45),
+                borderSide: const BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Населенный пункт',
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(45)
+      )
+              ),
               controller: textController,
               onChanged: (text) {
               _weatherBloc.add(LoadWeather(city: text));
@@ -51,35 +66,23 @@ class _MainScreenState extends State<MainScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('${wData['name']},', style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w400),),
-                            Text('${wData['temp'].toString()}°C', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w400,)),
-                            SvgPicture.network(wData['icon'])
+                            Row(
+                              children: [
+                                Text('${wData['temp'].toString()}°C', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w400,)),
+                                SizedBox(width: 2.w,),
+                                SvgPicture.network(wData['icon'], width: 10.w,)
+                              ],
+                            ),
+                            
                           ],
                         ),
-                        // Column(
-                        //   children: [
-                        //     Row(
-                        //       children: [
-
-                        //       ],
-                        //     )
-                        //   ],x
-                        // )
-                      // Center(child: Text('${wData['country_name'].toString()}, ${wData['city_name'].toString()}, ${wData['temp']}°C')),
-                      // SvgPicture.network('https://yastatic.net/weather/i/icons/funky/dark/${wData['icon'].toString().substring(5).toLowerCase()}.svg')
                     ],
                     );
-                  //return Text(state.weatherData.toString());
                 }
                 else {
-                  // return TextField(
-                  //               controller: textController,
-                  //               onChanged: (text) {
-                  //                 _weatherBloc.add(LoadWeather(city: text));
-                  //               },
-                  //             );
                   return Container(
-                    height: 80.h,
-                    child: Center(child: CircularProgressIndicator())
+                    height: 15.h,
+                    child: const Center(child: CircularProgressIndicator())
                     );
                 }
               },
