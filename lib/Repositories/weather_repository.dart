@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class WeatherRepository {
   Map<String, String> headers = {
-    'X-Yandex-Weather-Key':'e26415c0-1b5c-42c8-ac18-93701867e21d'
+    'X-Yandex-Weather-Key':'73a1c7c4-23aa-49b8-a9c8-fd57eee5de53'
   };
   final dio = Dio(
     BaseOptions(

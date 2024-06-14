@@ -18,7 +18,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoaded(weatherData: weatherData, forecastData: forecastData));
       } catch (e) {
       emit(WeatherLoadingFalilure(exception: e));
-      debugPrint('Возникла ошибка!');
+      debugPrint(e.toString());
       }
 
     });
